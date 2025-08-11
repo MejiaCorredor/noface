@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+*{
+    font-family: "Jersey 15";
+    margin: 0%;
+    padding: 0%;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+width: 200px;
+height: 300px;
+
+}
+.input-login{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+.form input[type="email"],input[type="password"]{
+    height: 30px;
+    text-align: center;
+    background-color: #d9d9d9;
+    border: none;
+}
+
+
+
+.check{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.check input[type="checkbox"]{
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    -moz-appearance: none;
+    overflow:hidden ;
+    border: solid 1px;
+    border-radius: 2px;
+    border-color: #181818;
+
+}
+.check input[type="checkbox"]:checked::after{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "✓";
+    background-color: #181818;
+    color: aliceblue;
+}
+#login-btn{
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #d9d9d9;
+
+}
+.forgot{
+    text-decoration: none;
+    color: #181818;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.principal-text{
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+.secundary-text{
+    line-height: 0;
+    font-size: 20px;
+}
