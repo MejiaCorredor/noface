@@ -27,11 +27,4 @@ styles/
 - **README.md**  
   Este archivo, que documenta la estructura y propósito del proyecto.
 
-## Cómo usar
-
-1. Abre `index.html` en tu navegador para ver la interfaz de inicio de sesión.
-2. Personaliza los estilos en `styles/style.css` según tus necesidades.
-3. Agrega lógica en `scripts/main.js` si deseas funcionalidades adicionales.
-
----
 # noface
