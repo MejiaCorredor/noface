@@ -13,16 +13,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.8rem;
 }
 .principalText {
   font-family: 'Jersey 15', monospace;
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   color: #181818;
 }
 .secondaryText {
   font-family: 'Jersey 15', monospace;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #181818;
   line-height: 0.8;
 }
@@ -37,12 +37,12 @@
 
 
 .categories button {
-  padding: 0.7rem 2rem;
+  padding: 1.1rem 2.8rem;
   background: #d9d9d9;
   color: #181818;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: 'Jersey 15', monospace;
   cursor: pointer;
   transition: background 0.2s;
@@ -60,9 +60,10 @@
 
 
 .featured h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-family: 'Jersey 15', monospace;
   color: #181818;
+  font-size: 1.5rem;
 }
 
 
@@ -75,9 +76,9 @@
 
 .item {
   background: #eee;
-  padding: 1rem 1.5rem;
+  padding: 1.2rem 2.2rem;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-family: 'Jersey 15', monospace;
   color: #181818;
 }

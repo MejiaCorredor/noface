@@ -3,14 +3,51 @@ import React, { useState } from 'react';
 import Login from '../components/Login';
 import Home from '../components/Home';
 
+
+
 import Navbar from '../components/Navbar';
 import Closet from '../components/Closet';
+import Combinador from '../components/Combinador';
 
 export default function MainRouter() {
+
   const [user, setUser] = useState(null);
   const [page, setPage] = useState('home');
+  const [clothes, setClothes] = useState(() => {
+    const saved = localStorage.getItem('closet');
+    if (saved) return JSON.parse(saved);
+    // Prendas base
+    return [
+      { name: 'Camiseta', type: 'camiseta', size: 'M', lastUsed: Date.now() },
+      { name: 'Pantalón', type: 'pantalon', size: '32', lastUsed: Date.now() },
+      { name: 'Zapatos', type: 'zapatos', size: '41', lastUsed: Date.now() },
+      { name: 'Gorra', type: 'gorra', lastUsed: Date.now() },
+    ];
+  });
+
+  // Persistir en localStorage
+  React.useEffect(() => {
+    localStorage.setItem('closet', JSON.stringify(clothes));
+  }, [clothes]);
 
   const handleNavigate = (to) => setPage(to);
+
+
+  const handleUpload = (prenda) => {
+    // Pedir talla si es camiseta, pantalon o zapatos
+    let size = '';
+    if (['camiseta','pantalon','zapatos'].includes(prenda.type)) {
+      size = prompt('¿Cuál es tu talla para esta prenda?');
+    }
+    setClothes(prev => [...prev, { ...prenda, size }]);
+  };
+
+  // Marcar prenda como usada (actualiza lastUsed)
+  const handleUse = (prenda) => {
+    setClothes(prev => prev.map(c =>
+      c === prenda ? { ...c, lastUsed: Date.now() } : c
+    ));
+  };
 
   if (!user) {
     return <>
@@ -20,12 +57,13 @@ export default function MainRouter() {
   }
 
   let content = null;
+
   if (page === 'home') {
     content = <Home onGoToCloset={() => setPage('closet')} onGoToRecs={() => setPage('recs')} />;
   } else if (page === 'closet') {
-    content = <Closet />;
+    content = <Closet clothes={clothes} onUpload={handleUpload} />;
   } else if (page === 'recs') {
-    content = <div>Recomendaciones (próximamente)</div>;
+    content = <Combinador clothes={clothes} onUse={handleUse} />;
   } else {
     content = <div>Página en construcción</div>;
   }

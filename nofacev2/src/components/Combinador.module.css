@@ -1,4 +1,4 @@
-.closetContainer {
+.combinadorContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,32 +6,21 @@
   min-height: 80vh;
   background: #fff;
 }
-
-.closetContainer h2 {
+.combinadorContainer h2 {
   font-family: 'Jersey 15', monospace;
   font-size: 2.7rem;
   color: #181818;
   margin-bottom: 2.2rem;
 }
-
-.clothesGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+.carousels {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
   margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-.clothItem {
-  background: #eee;
-  border-radius: 8px;
-  padding: 1.7rem 2.2rem;
-  font-family: 'Jersey 15', monospace;
-  font-size: 1.35rem;
-  color: #181818;
-  text-align: center;
-}
-
-.uploadBtn {
+.usarBtn {
   background: #d9d9d9;
   color: #181818;
   border: none;
@@ -42,6 +31,6 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.uploadBtn:hover {
+.usarBtn:hover {
   background: #bdbdbd;
 }
