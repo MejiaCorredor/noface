@@ -1,0 +1,47 @@
+.closetContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 80vh;
+  background: #fff;
+}
+
+.closetContainer h2 {
+  font-family: 'Jersey 15', monospace;
+  font-size: 2rem;
+  color: #181818;
+  margin-bottom: 1.5rem;
+}
+
+.clothesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.clothItem {
+  background: #eee;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.1rem;
+  color: #181818;
+  text-align: center;
+}
+
+.uploadBtn {
+  background: #d9d9d9;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.1rem;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.uploadBtn:hover {
+  background: #bdbdbd;
+}
