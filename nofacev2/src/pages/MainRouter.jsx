@@ -8,6 +8,7 @@ import Home from '../components/Home';
 import Navbar from '../components/Navbar';
 import Closet from '../components/Closet';
 import Combinador from '../components/Combinador';
+import Recomendaciones from '../components/Recomendaciones';
 
 export default function MainRouter() {
 
@@ -63,7 +64,10 @@ export default function MainRouter() {
   } else if (page === 'closet') {
     content = <Closet clothes={clothes} onUpload={handleUpload} />;
   } else if (page === 'recs') {
-    content = <Combinador clothes={clothes} onUse={handleUse} />;
+    content = <>
+      <Recomendaciones clothes={clothes} />
+      <Combinador clothes={clothes} onUse={handleUse} />
+    </>;
   } else {
     content = <div>Página en construcción</div>;
   }
