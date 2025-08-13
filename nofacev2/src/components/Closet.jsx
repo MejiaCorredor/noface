@@ -1,21 +1,24 @@
 
-import React, { useRef } from 'react';
+
+
+import React, { useRef, useState } from 'react';
 import styles from './Closet.module.css';
+import UploadModal from './UploadModal';
 
 export default function Closet({ clothes, onUpload }) {
+
+
   const fileInput = useRef();
+  const [modalImg, setModalImg] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
-      onUpload({
-        name: file.name,
-        type: 'custom',
-        image: ev.target.result,
-        lastUsed: Date.now(),
-      });
+      setModalImg(ev.target.result);
+      setShowModal(true);
     };
     reader.readAsDataURL(file);
   };
@@ -35,6 +38,7 @@ export default function Closet({ clothes, onUpload }) {
       </div>
       <button className={styles.uploadBtn} onClick={()=>fileInput.current.click()}>Subir Prenda</button>
       <input type="file" accept="image/*" style={{display:'none'}} ref={fileInput} onChange={handleFileChange} />
+      {showModal && <UploadModal image={modalImg} onClose={()=>setShowModal(false)} onSave={onUpload} />}
     </div>
   );
 }
