@@ -54,12 +54,7 @@ export default function MainRouter() {
 
 
   const handleUpload = (prenda) => {
-    // Pedir talla si es camiseta, pantalon o zapatos
-    let size = '';
-    if (['camiseta','pantalon','zapatos'].includes(prenda.type)) {
-      size = prompt('¿Cuál es tu talla para esta prenda?');
-    }
-    setClothes(prev => [...prev, { ...prenda, size }]);
+    setClothes(prev => [...prev, prenda]);
   };
 
   // Marcar prenda como usada (actualiza lastUsed)
