@@ -19,6 +19,10 @@ export default function Navbar({ onNavigate, current }) {
         <span className={styles.menuIcon}>&#9776;</span>
       </button>
       <div className={open ? styles.menuOpen : styles.menuClosed}>
+        <div className={styles.menuLogo}>
+          <span className={styles.logo}>~NOFACE~</span>
+          <span className={styles.subtitle}>clothing</span>
+        </div>
         <button className={current === 'home' ? styles.active : ''} onClick={() => handleNav('home')}>
           <span className={styles.icon} role="img" aria-label="Inicio">🏠</span>
           <span className={styles.btnText}>Inicio</span>
