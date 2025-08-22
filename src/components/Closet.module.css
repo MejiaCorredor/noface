@@ -1,3 +1,12 @@
+.closetImg {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  background: #181818;
+}
 .deleteBtn {
   background: #c0392b;
   color: #fff;
