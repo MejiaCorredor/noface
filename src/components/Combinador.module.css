@@ -1,0 +1,36 @@
+.combinadorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  min-height: 80vh;
+  background: #fff;
+}
+.combinadorContainer h2 {
+  font-family: 'Jersey 15', monospace;
+  font-size: 2.7rem;
+  color: #181818;
+  margin-bottom: 2.2rem;
+}
+.carousels {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.usarBtn {
+  background: #d9d9d9;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.25rem;
+  padding: 1.1rem 2.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.usarBtn:hover {
+  background: #bdbdbd;
+}
