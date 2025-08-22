@@ -81,7 +81,10 @@ export default function MainRouter() {
   if (page === 'home') {
     content = <Home onGoToCloset={() => setPage('closet')} onGoToRecs={() => setPage('recs')} />;
   } else if (page === 'closet') {
-    content = <Closet clothes={clothes} onUpload={handleUpload} />;
+    const handleDelete = (index) => {
+      setClothes(prev => prev.filter((_, i) => i !== index));
+    };
+    content = <Closet clothes={clothes} onUpload={handleUpload} onDelete={handleDelete} />;
   } else if (page === 'recs') {
     content = <>
       <Recomendaciones clothes={clothes} />

@@ -21,6 +21,7 @@
   font-family: 'Jersey 15', monospace;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color:#ffffff;
 }
 .preview {
   max-width: 120px;
@@ -37,7 +38,7 @@ form {
 }
 label {
   font-size: 1.1rem;
-  color: #181818;
+  color: #ffffff;
   font-family: 'Jersey 15', monospace;
 }
 input, select {
