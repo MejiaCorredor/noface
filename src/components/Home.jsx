@@ -7,6 +7,7 @@ export default function Home({ onGoToCloset, onGoToRecs }) {
     <div className={styles.homeContainer}>
       <div className={styles.logo}>
         <span className={styles.principalText}>~NOFACE~</span>
+        <br />
         <span className={styles.secondaryText}>clothing</span>
       </div>
       <div className={styles.actionsSection}>

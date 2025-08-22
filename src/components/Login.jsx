@@ -21,6 +21,7 @@ export default function Login({ onLogin }) {
     <div className={styles.loginContainer}>
       <div className={styles.logo}>
         <span className={styles.principalText}>~NOFACE~</span>
+        <br />
         <span className={styles.secondaryText}>clothing</span>
       </div>
       <form onSubmit={handleSubmit}>
