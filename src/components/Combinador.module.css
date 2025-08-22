@@ -24,16 +24,18 @@
   justify-content: center;
 }
 .usarBtn {
-  background: #444;
-  color: #fff;
+  background: #f5c518;
+  color: #181818;
   border: none;
   border-radius: 8px;
   font-family: 'Jersey 15', monospace;
-  font-size: 1.25rem;
-  padding: 1.1rem 2.8rem;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
   cursor: pointer;
   transition: background 0.2s;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .usarBtn:hover {
-  background: #222;
+  background: #ffe066;
 }

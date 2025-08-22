@@ -6,20 +6,21 @@
 }
 
 .actionBtn {
-  padding: 1.1rem 2.8rem;
-  background: #444444;
-  color: #fff;
+  padding: 0.6rem 1.5rem;
+  background: #f5c518;
+  color: #181818;
   border: none;
   border-radius: 8px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: 'Jersey 15', monospace;
   cursor: pointer;
   transition: background 0.2s;
   font-weight: bold;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  letter-spacing: 1px;
 }
 .actionBtn:hover {
-  background: #222;
+  background: #ffe066;
 }
 
 .categoryGrid {
@@ -87,18 +88,20 @@
 
 
 .categories button {
-  padding: 1.1rem 2.8rem;
-  background: #444;
-  color: #fff;
+  padding: 0.6rem 1.5rem;
+  background: #f5c518;
+  color: #181818;
   border: none;
   border-radius: 8px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: 'Jersey 15', monospace;
   cursor: pointer;
   transition: background 0.2s;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .categories button:hover {
-  background: #222;
+  background: #ffe066;
 }
 
 
