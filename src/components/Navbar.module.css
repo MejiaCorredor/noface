@@ -1,3 +1,109 @@
+/* --- Hamburguesa y menú lateral para móvil --- */
+.menuBtn {
+  display: none;
+}
+@media (max-width: 600px) {
+  .menuBtn {
+    display: flex;
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #222;
+    align-items: center;
+    justify-content: center;
+    z-index: 201;
+    padding: 0;
+  }
+}
+.menuIcon {
+  font-size: 2.1rem;
+}
+.menuOpen {
+  display: none;
+}
+.menuClosed {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.18);
+  z-index: 199;
+}
+@media (max-width: 600px) {
+  .navbar {
+    height: 56px;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    background: #181818;
+    position: fixed;
+    z-index: 100;
+  }
+  .brand {
+    margin-left: 1.2rem;
+    position: static;
+    left: auto;
+    transform: none;
+    min-width: 0;
+  }
+  .menuBtn {
+    display: flex;
+    background: #222;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    z-index: 201;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .menuOpen {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    background: #222;
+    z-index: 200;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    padding-top: 4.5rem;
+    padding-bottom: 2rem;
+    gap: 1.2rem;
+    align-items: stretch;
+    transition: transform 0.2s;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+  }
+}
+/* --- Desktop styles above --- */
   .navbar {
     position: fixed;
     top: 0;
@@ -15,6 +121,8 @@
     gap: 1vw;
     justify-content: center;
   }
+
+
 .brand {
   display: flex;
   flex-direction: column;
@@ -62,12 +170,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+}
+.btnText {
+  display: inline;
 }
 .navBtns button:hover {
   background: #bdbdbd;
 }
 .active {
-  background: #181818 !important;
+  background: #444444 !important; /* gris oscuro */
   color: #fff !important;
   border: 2px solid #fff;
 }
