@@ -108,8 +108,15 @@
 .featured {
   margin-top: 2rem;
   width: 100%;
-  max-width: 350px;
+  max-width: 370px;
   background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 #0004;
+  padding: 1.7rem 1.2rem 1.2rem 1.2rem;
+  border: 2.5px solid #f5c518;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
