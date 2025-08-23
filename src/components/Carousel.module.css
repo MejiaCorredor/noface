@@ -1,44 +1,54 @@
 .carousel {
-  .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.2rem;
-    margin: 2.5rem 0;
-  }
-  .item {
-    min-width: 140px;
-    min-height: 140px;
-    background: #eee;
-    border-radius: 12px;
-    font-family: 'Jersey 15', monospace;
-    font-size: 1.7rem;
-    color: #181818;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.2rem 3rem;
-  }
-  .arrow {
-    background: #d9d9d9;
-    color: #181818;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 2.1rem;
-    cursor: pointer;
-    font-family: 'Jersey 15', monospace;
-    transition: background 0.2s;
-  }
-  .arrow:hover {
-    background: #bdbdbd;
-  }
-  .type {
-    font-size: 1.2rem;
-    color: #181818;
-    margin-left: 1.5rem;
-    font-family: 'Jersey 15', monospace;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2.5rem 0;
+}
+.item {
+  min-width: 170px;
+  min-height: 170px;
+  background: #232323;
+  border-radius: 18px;
   font-family: 'Jersey 15', monospace;
+  font-size: 1.7rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid #f5c518;
+  box-shadow: 0 2px 12px #0003;
+  margin: 0 0.5rem;
+}
+.arrow {
+  background: #f5c518;
+  color: #181818;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: 'Jersey 15', monospace;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #0002, 0 0 0 2px #fff2 inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+.arrow:hover, .arrow:focus {
+  background: #ffe066;
+  box-shadow: 0 4px 16px #0003, 0 0 0 2.5px #f5c518 inset;
+  transform: scale(1.08);
+}
+.type {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 1.1rem;
+  text-align: center;
+  font-family: 'Jersey 15', monospace;
+  letter-spacing: 1px;
 }
