@@ -1,3 +1,48 @@
+.categoryBox {
+  width: 100%;
+  margin-bottom: 2.2rem;
+  background: #232323;
+  border-radius: 16px;
+  border: 2px solid #f5c518;
+  box-shadow: 0 4px 24px 0 #0004;
+  overflow: hidden;
+}
+
+.categoryToggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #f5c518;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-align: left;
+  padding: 1.2rem 1.2rem 1.2rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.categoryToggle:focus {
+  outline: 2px solid #f5c518;
+}
+.arrowOpen {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+.arrowClosed {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+.categoryContent {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.categoryContent.open {
+  /* max-height is set inline for smooth animation */
+}
 .closetImg {
   width: 70px;
   height: 70px;
