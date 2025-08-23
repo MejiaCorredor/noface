@@ -1,0 +1,119 @@
+.congratsAnim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeScale 1.2s cubic-bezier(.4,1.4,.6,1) both;
+  min-height: 180px;
+}
+.congratsText {
+  color: #f5c518;
+  font-size: 1.5rem;
+  font-family: 'Jersey 15', monospace;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.7rem;
+  letter-spacing: 1px;
+}
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.likeBtn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+  transition: transform 0.15s;
+}
+.likeBtn:active {
+  transform: scale(1.15);
+}
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  background: #232323;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 320px;
+  max-width: 95vw;
+  color: #fff;
+  box-shadow: 0 4px 32px #0008;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.prendasList {
+  margin: 1.2rem 0 1.5rem 0;
+  width: 100%;
+}
+.prendaItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #2e2e2e;
+  border: 2px solid #f5c518;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.7rem;
+}
+.img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #181818;
+  border: 1.5px solid #f5c518;
+}
+.actions {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.cancelBtn {
+  background: #353535;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cancelBtn:hover {
+  background: #444;
+}
+.confirmBtn {
+  background: #f5c518;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.confirmBtn:hover {
+  background: #ffe066;
+}

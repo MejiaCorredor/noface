@@ -1,3 +1,21 @@
+.carouselGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carouselLabel {
+  color: #f5c518;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
 .combinadorContainer {
   display: flex;
   flex-direction: column;
@@ -17,11 +35,10 @@
 }
 .carousels {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
 }
 .usarBtn {
   background: #f5c518;
