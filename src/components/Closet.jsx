@@ -39,7 +39,9 @@ export default function Closet({ clothes, onUpload, onDelete }) {
       .filter(c => c.type === cat.key);
   }
 
+
   const isEmpty = clothes.length === 0;
+  const [openCat, setOpenCat] = useState(null);
 
   return (
     <div className={styles.closetContainer} style={{ background: '#181818', minHeight: '100vh', color: '#fff' }}>
@@ -54,65 +56,76 @@ export default function Closet({ clothes, onUpload, onDelete }) {
       {isEmpty && <div style={{ textAlign: 'center', opacity: 0.7, marginBottom: '2rem' }}>No tienes prendas aún</div>}
       {categorias.map(cat =>
         grouped[cat.key].length > 0 && (
-          <div key={cat.key} style={{
-            width: '100%',
-            marginBottom: '2.2rem',
-            background: '#232323',
-            borderRadius: '16px',
-            border: '2px solid #f5c518',
-            boxShadow: '0 4px 24px 0 #0004',
-            padding: '1.5rem 1.2rem'
-          }}>
-            <h3 style={{
-              textAlign: 'left',
-              color: '#f5c518',
-              margin: '0 0 1.1rem 0',
-              fontFamily: "'Jersey 15', monospace",
-              fontSize: '1.5rem',
-              letterSpacing: '1px'
-            }}>{cat.label}</h3>
-            <div className={styles.clothesGrid}>
-              {grouped[cat.key].map((c) => (
-                <div className={styles.clothItem} key={c._idx} style={{
-                  background: '#2e2e2e',
-                  borderRadius: '12px',
-                  boxShadow: '0 2px 8px #0002',
-                  color: '#fff'
-                }}>
-                  {c.image && (
-                    <img
-                      src={c.image}
-                      alt={c.name}
-                      className={styles.closetImg}
+          <div key={cat.key} className={styles.categoryContainer}>
+            <button
+              onClick={() => setOpenCat(openCat === cat.key ? null : cat.key)}
+              style={{
+                width: '100%',
+                background: 'none',
+                border: 'none',
+                color: '#f5c518',
+                fontFamily: "'Jersey 15', monospace",
+                fontSize: '1.5rem',
+                letterSpacing: '1px',
+                textAlign: 'left',
+                padding: '1.1rem 0 1.1rem 0',
+                cursor: 'pointer',
+                outline: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.7rem',
+                transition: 'background 0.2s',
+                borderRadius: '12px',
+                marginBottom: openCat === cat.key ? '1.1rem' : 0
+              }}
+            >
+              <span style={{flex:1}}>{cat.label}</span>
+              <span style={{fontSize:'1.3rem',color:'#f5c518'}}>{openCat === cat.key ? '▲' : '▼'}</span>
+            </button>
+            <div className={openCat === cat.key ? styles.categoryExpand : styles.categoryCollapse}>
+              <div className={styles.clothesGrid} style={{marginBottom:'1.2rem'}}>
+                {grouped[cat.key].map((c) => (
+                  <div className={styles.clothItem} key={c._idx} style={{
+                    background: '#2e2e2e',
+                    borderRadius: '12px',
+                    boxShadow: '0 2px 8px #0002',
+                    color: '#fff'
+                  }}>
+                    {c.image && (
+                      <img
+                        src={c.image}
+                        alt={c.name}
+                        className={styles.closetImg}
+                        style={{
+                          width: 90,
+                          height: 90,
+                          objectFit: 'cover',
+                          borderRadius: 10,
+                          marginBottom: 8,
+                          background: '#181818',
+                          border: '2px solid #f5c518'
+                        }}
+                      />
+                    )}
+                    <div style={{ fontWeight: 600, marginBottom: 2 }}>{c.name}</div>
+                    {c.size && <div style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 2 }}>Talla: {c.size}</div>}
+                    <button
+                      className={styles.deleteBtn}
+                      onClick={() => setDeleteIndex(c._idx)}
                       style={{
-                        width: 90,
-                        height: 90,
-                        objectFit: 'cover',
-                        borderRadius: 10,
-                        marginBottom: 8,
-                        background: '#181818',
-                        border: '2px solid #f5c518'
+                        marginTop: '0.7rem',
+                        background: '#c0392b',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: 8,
+                        padding: '0.4rem 1.1rem',
+                        fontWeight: 600,
+                        cursor: 'pointer'
                       }}
-                    />
-                  )}
-                  <div style={{ fontWeight: 600, marginBottom: 2 }}>{c.name}</div>
-                  {c.size && <div style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 2 }}>Talla: {c.size}</div>}
-                  <button
-                    className={styles.deleteBtn}
-                    onClick={() => setDeleteIndex(c._idx)}
-                    style={{
-                      marginTop: '0.7rem',
-                      background: '#c0392b',
-                      color: '#fff',
-                      border: 'none',
-                      borderRadius: 8,
-                      padding: '0.4rem 1.1rem',
-                      fontWeight: 600,
-                      cursor: 'pointer'
-                    }}
-                  >Eliminar</button>
-                </div>
-              ))}
+                    >Eliminar</button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )
