@@ -1,0 +1,41 @@
+.combinadorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5.5rem 1rem 2.5rem 1rem;
+  min-height: 80vh;
+  background: #232323;
+  color: #fff;
+  text-align: center;
+}
+.combinadorContainer h2 {
+  font-family: 'Jersey 15', monospace;
+  font-size: 2.7rem;
+  color: #fff;
+  margin-bottom: 2.2rem;
+  text-align: center;
+}
+.carousels {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.usarBtn {
+  background: #f5c518;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Jersey 15', monospace;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.usarBtn:hover {
+  background: #ffe066;
+}
