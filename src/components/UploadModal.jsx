@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+
+import React, { useState } from 'react';
 import styles from './UploadModal.module.css';
 
 const tipos = [
@@ -8,15 +9,28 @@ const tipos = [
   { value: 'gorra', label: 'Gorra' },
 ];
 
+const tallasCamiseta = ['XS','S','M','L','XL','XXL'];
+const tallasPantalon = ['28','30','32','34','36','38','40'];
+const tallasZapatos = ['23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44'];
+
+
 export default function UploadModal({ onClose, onSave, image }) {
   const [tipo, setTipo] = useState('camiseta');
   const [talla, setTalla] = useState('');
   const [nombre, setNombre] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!nombre) return alert('Ponle un nombre a la prenda');
-    if ((tipo === 'camiseta' || tipo === 'pantalon' || tipo === 'zapatos') && !talla) return alert('Especifica la talla');
+    if (!nombre) {
+      setError('Ponle un nombre a la prenda');
+      return;
+    }
+    if ((tipo === 'camiseta' || tipo === 'pantalon' || tipo === 'zapatos') && !talla) {
+      setError('Especifica la talla');
+      return;
+    }
+    setError('');
     onSave({
       name: nombre,
       type: tipo,
@@ -33,6 +47,7 @@ export default function UploadModal({ onClose, onSave, image }) {
         <h3>Subir Prenda</h3>
         {image && <img src={image} alt="preview" className={styles.preview} />}
         <form onSubmit={handleSubmit}>
+          {error && <div style={{color:'#f5c518',marginBottom:8,fontWeight:'bold',textAlign:'center'}}>{error}</div>}
           <label>Nombre:
             <input value={nombre} onChange={e => setNombre(e.target.value)} required />
           </label>
@@ -43,7 +58,12 @@ export default function UploadModal({ onClose, onSave, image }) {
           </label>
           {(tipo === 'camiseta' || tipo === 'pantalon' || tipo === 'zapatos') && (
             <label>Talla:
-              <input value={talla} onChange={e => setTalla(e.target.value)} required />
+              <select value={talla} onChange={e => setTalla(e.target.value)} required>
+                <option value="">Selecciona talla</option>
+                {tipo === 'camiseta' && tallasCamiseta.map(t => <option key={t} value={t}>{t}</option>)}
+                {tipo === 'pantalon' && tallasPantalon.map(t => <option key={t} value={t}>{t}</option>)}
+                {tipo === 'zapatos' && tallasZapatos.map(t => <option key={t} value={t}>{t}</option>)}
+              </select>
             </label>
           )}
           <div className={styles.actions}>

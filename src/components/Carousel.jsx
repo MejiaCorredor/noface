@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Carousel.module.css';
 
-export default function Carousel({ items, type }) {
+export default function Carousel({ items }) {
   const [index, setIndex] = React.useState(0);
   if (!items || items.length === 0) return null;
 
@@ -10,10 +10,9 @@ export default function Carousel({ items, type }) {
 
   return (
     <div className={styles.carousel}>
-      <button className={styles.arrow} onClick={prev}>&lt;</button>
+      <button className={styles.arrow} onClick={prev} aria-label="Anterior">&#60;</button>
       <div className={styles.item}>{items[index]}</div>
-      <button className={styles.arrow} onClick={next}>&gt;</button>
-      <div className={styles.type}>{type}</div>
+      <button className={styles.arrow} onClick={next} aria-label="Siguiente">&#62;</button>
     </div>
   );
 }

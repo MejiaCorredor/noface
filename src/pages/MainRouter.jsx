@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import Home from '../components/Home';
 
@@ -9,6 +9,13 @@ import Navbar from '../components/Navbar';
 import Closet from '../components/Closet';
 import Combinador from '../components/Combinador';
 import Recomendaciones from '../components/Recomendaciones';
+
+
+const PAGE_TITLES = {
+  home: 'Inicio',
+  closet: 'Closet',
+  recs: 'Recomendaciones',
+};
 
 export default function MainRouter() {
 
@@ -27,20 +34,27 @@ export default function MainRouter() {
   });
 
   // Persistir en localStorage
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('closet', JSON.stringify(clothes));
   }, [clothes]);
+
+  // Cambiar el título de la pestaña según la página
+  useEffect(() => {
+    const base = 'NOFACE';
+    const pageTitle = PAGE_TITLES[page] || '';
+    document.title = pageTitle ? `${base} | ${pageTitle}` : base;
+    // Cambiar favicon (logo)
+    const favicon = document.querySelector("link[rel='icon']");
+    if (favicon) {
+      favicon.href = '/vite.svg';
+    }
+  }, [page]);
 
   const handleNavigate = (to) => setPage(to);
 
 
   const handleUpload = (prenda) => {
-    // Pedir talla si es camiseta, pantalon o zapatos
-    let size = '';
-    if (['camiseta','pantalon','zapatos'].includes(prenda.type)) {
-      size = prompt('¿Cuál es tu talla para esta prenda?');
-    }
-    setClothes(prev => [...prev, { ...prenda, size }]);
+    setClothes(prev => [...prev, prenda]);
   };
 
   // Marcar prenda como usada (actualiza lastUsed)
@@ -62,7 +76,10 @@ export default function MainRouter() {
   if (page === 'home') {
     content = <Home onGoToCloset={() => setPage('closet')} onGoToRecs={() => setPage('recs')} />;
   } else if (page === 'closet') {
-    content = <Closet clothes={clothes} onUpload={handleUpload} />;
+    const handleDelete = (index) => {
+      setClothes(prev => prev.filter((_, i) => i !== index));
+    };
+    content = <Closet clothes={clothes} onUpload={handleUpload} onDelete={handleDelete} />;
   } else if (page === 'recs') {
     content = <>
       <Recomendaciones clothes={clothes} />

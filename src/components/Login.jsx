@@ -21,6 +21,7 @@ export default function Login({ onLogin }) {
     <div className={styles.loginContainer}>
       <div className={styles.logo}>
         <span className={styles.principalText}>~NOFACE~</span>
+        <br />
         <span className={styles.secondaryText}>clothing</span>
       </div>
       <form onSubmit={handleSubmit}>
@@ -42,11 +43,11 @@ export default function Login({ onLogin }) {
             id="remember"
             checked={remember}
             onChange={e => setRemember(e.target.checked)}
-            style={{ width: 16, height: 16, accentColor: '#181818' }}
+            style={{ width: 16, height: 16, accentColor: '#f5c518' }}
           />
-          <label htmlFor="remember" style={{ fontSize: '0.95rem', color: '#181818' }}>Recordar</label>
+          <label htmlFor="remember" style={{ fontSize: '0.95rem', color: '#fff' }}>Recordar</label>
         </div>
-        <a href="#" style={{ color: '#181818', textDecoration: 'none', fontSize: '0.95rem', marginBottom: '0.2rem' }}>Olvidé la contraseña</a>
+        <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '0.95rem', marginBottom: '0.2rem' }}>Olvidé la contraseña</a>
         {error && <div className={styles.error}>{error}</div>}
         <button type="submit">LOGIN</button>
       </form>
