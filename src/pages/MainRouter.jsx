@@ -1,15 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import Home from '../components/Home';
-
-
-
 import Navbar from '../components/Navbar';
 import Closet from '../components/Closet';
 import Combinador from '../components/Combinador';
 import Recomendaciones from '../components/Recomendaciones';
-
+import Logo from '../components/Logo';
 
 const PAGE_TITLES = {
   home: 'Inicio',
@@ -18,13 +14,14 @@ const PAGE_TITLES = {
 };
 
 export default function MainRouter() {
-
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    return localStorage.getItem('user') || null;
+  });
+  const [remember, setRemember] = useState(false);
   const [page, setPage] = useState('home');
   const [clothes, setClothes] = useState(() => {
     const saved = localStorage.getItem('closet');
     if (saved) return JSON.parse(saved);
-    // Prendas base
     return [
       { name: 'Camiseta', type: 'camiseta', size: 'M', lastUsed: Date.now() },
       { name: 'Pantalón', type: 'pantalon', size: '32', lastUsed: Date.now() },
@@ -33,64 +30,103 @@ export default function MainRouter() {
     ];
   });
 
-  // Persistir en localStorage
+  // 🔹 Guardar closet en localStorage
   useEffect(() => {
     localStorage.setItem('closet', JSON.stringify(clothes));
   }, [clothes]);
 
-  // Cambiar el título de la pestaña según la página
+  // 🔹 Guardar sesión si se eligió "recordar"
+  useEffect(() => {
+    if (remember && user) {
+      localStorage.setItem('user', user);
+    } else if (!user) {
+      localStorage.removeItem('user');
+    }
+  }, [user, remember]);
+
+  // 🔹 Cambiar título de pestaña y favicon
   useEffect(() => {
     const base = 'NOFACE';
     const pageTitle = PAGE_TITLES[page] || '';
     document.title = pageTitle ? `${base} | ${pageTitle}` : base;
-    // Cambiar favicon (logo)
+
     const favicon = document.querySelector("link[rel='icon']");
     if (favicon) {
       favicon.href = '/vite.svg';
     }
   }, [page]);
 
+  // 🚀 Navegación
   const handleNavigate = (to) => setPage(to);
 
+  // 🚀 Volver al home (para logo clickeable)
+  const handleGoHome = () => setPage('home');
 
-  const handleUpload = (prenda) => {
-    setClothes(prev => [...prev, prenda]);
-  };
+  // 🚀 Subir prenda
+  const handleUpload = (prenda) => setClothes(prev => [...prev, prenda]);
 
-  // Marcar prenda como usada (actualiza lastUsed)
+  // 🚀 Marcar prenda como usada
   const handleUse = (prenda) => {
-    setClothes(prev => prev.map(c =>
-      c === prenda ? { ...c, lastUsed: Date.now() } : c
-    ));
+    setClothes(prev =>
+      prev.map(c => (c === prenda ? { ...c, lastUsed: Date.now() } : c))
+    );
   };
 
+  // 🚀 Login
+  const handleLogin = (username, rememberChecked) => {
+    setUser(username);
+    setRemember(rememberChecked);
+    setPage('home');
+  };
+
+  // 🚀 Logout
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+    setPage('home');
+  };
+
+  // 🔒 Mostrar login si no hay sesión activa
   if (!user) {
-    return <>
-      <Navbar onNavigate={handleNavigate} current={page} />
-      <Login onLogin={setUser} />
-    </>;
+    return <Login onLogin={handleLogin} />;
   }
 
+  // Contenido principal
   let content = null;
-
   if (page === 'home') {
-    content = <Home onGoToCloset={() => setPage('closet')} onGoToRecs={() => setPage('recs')} />;
+    content = (
+      <Home
+        onGoToCloset={() => setPage('closet')}
+        onGoToRecs={() => setPage('recs')}
+      />
+    );
   } else if (page === 'closet') {
     const handleDelete = (index) => {
       setClothes(prev => prev.filter((_, i) => i !== index));
     };
-    content = <Closet clothes={clothes} onUpload={handleUpload} onDelete={handleDelete} />;
+    content = (
+      <Closet clothes={clothes} onUpload={handleUpload} onDelete={handleDelete} />
+    );
   } else if (page === 'recs') {
-    content = <>
-      <Recomendaciones clothes={clothes} />
-      <Combinador clothes={clothes} onUse={handleUse} />
-    </>;
+    content = (
+      <>
+        <Recomendaciones clothes={clothes} />
+        <Combinador clothes={clothes} onUse={handleUse} />
+      </>
+    );
   } else {
     content = <div>Página en construcción</div>;
   }
 
-  return <>
-    <Navbar onNavigate={handleNavigate} current={page} />
-    <div style={{ paddingTop: 60 }}>{content}</div>
-  </>;
+  return (
+    <>
+      <Logo onClick={handleGoHome} />
+      <Navbar
+        onNavigate={handleNavigate}
+        current={page}
+        onLogout={handleLogout}
+      />
+      <div style={{ paddingTop: 60 }}>{content}</div>
+    </>
+  );
 }
