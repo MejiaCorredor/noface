@@ -3,38 +3,30 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   height: 64px;
   background: #181818;
   color: #fff;
-  display: flex;
-  align-items: center;
   z-index: 100;
-  justify-content: space-between;
   padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden; /* evita que se salga contenido */
 }
 
-/* Bloques */
-.leftBlock, .centerBlock, .rightBlock {
-  display: flex;
-  align-items: center;
-}
 .leftBlock {
-  min-width: 80px; /* espacio mínimo para logout */
-}
-.rightBlock {
-  min-width: 80px; /* espacio mínimo para menú hamburguesa */
-  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
 }
 
-/* Bloque central: logo centrado visualmente */
-.centerBlock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.centerText {
+  font-family: 'Jersey 15', monospace;
+  color: #d9d9d9;
 }
 
 /* Logo */
@@ -44,12 +36,14 @@
   align-items: center;
   justify-content: center;
 }
+
 .logo {
   font-family: 'Jersey 15', monospace;
   font-size: 2rem;
   letter-spacing: 2px;
   color: #f5c518;
 }
+
 .subtitle {
   font-family: 'Jersey 15', monospace;
   font-size: 1rem;
@@ -57,28 +51,61 @@
   color: #d9d9d9;
 }
 
-/* Botón logout */
+/* Navegación escritorio */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* ajusta botones en pantallas pequeñas */
+  min-width: 0;
+}
+
+.desktopNav button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Jersey 15', monospace;
+}
+
+.desktopNav button.active {
+  background: #f5c518;
+  color: #181818;
+}
+
+/* Botón salir escritorio */
 .logoutBtn {
-  padding: 0.5rem 0.8rem;
   background: #ff4d4d;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
   font-family: 'Jersey 15', monospace;
-  cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s, transform 0.2s;
-}
-.logoutBtn:hover {
-  background: #ff6666;
-  transform: translateY(-2px);
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
 }
 
-/* Menú lateral (mobile) */
-.menuBtn { display: none; }
-.menuIcon { font-size: 2.1rem; }
-.menuOpen, .menuClosed { display: none; }
+.logoutBtn:hover {
+  background: #ff6666;
+}
+
+/* Botón de menú y menú móvil */
+.menuBtn,
+.menu,
+.logoutBtnMobile {
+  display: none;
+}
+
+.menuIcon {
+  font-size: 2.1rem;
+}
+
+/* Overlay móvil */
 .overlay {
   position: fixed;
   top: 0;
@@ -89,79 +116,91 @@
   z-index: 199;
 }
 
-/* Botones del menú lateral */
-.menuLogo { display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem; }
-.navBtns button {
-  background: linear-gradient(90deg, #f5c518 60%, #232323 100%);
-  color: #181818;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Jersey 15', monospace;
-  font-size: 1.15rem;
-  padding: 0.7rem 2.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.navBtns button:hover { background: #bdbdbd; }
-.active {
-  background: #444 !important;
-  color: #fff !important;
-  border: 2px solid #fff;
-}
-
-/* Iconos y texto */
-.icon { font-size: 1.2rem; margin-right: 0.2rem; }
-.btnText { display: inline; }
-
-/* Mostrar/ocultar según dispositivo */
-.desktopOnly { display: flex; }
-.mobileOnly { display: none; }
-
-/* --- Responsive --- */
-@media (max-width: 600px) {
-  .desktopOnly { display: none !important; }
-  .mobileOnly { display: flex !important; }
-
-  .navbar { height: 56px; padding: 0 0.8rem; }
-
-  .menuBtn { 
-    display: flex;
-    position: absolute;
-    right: 0.8rem;
-    top: 0.8rem;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    background: #222;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+/* Responsive <=768px */
+@media (max-width: 768px) {
+  .leftBlock .centerText,
+  .desktopNav {
+    display: none;
   }
 
-  .menuOpen {
+  .menuBtn {
+    display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .menu {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    max-width: 100vw;
+    width: 80%;
+    max-width: 400px;
     height: auto;
     background: #222;
     z-index: 200;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-    padding-top: 4.5rem;
-    padding-bottom: 2rem;
-    gap: 1.2rem;
+    padding: 1rem;
+    gap: 0.8rem;
     align-items: stretch;
-    transition: transform 0.2s;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    transition: transform 0.2s ease-in-out;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+  }
+
+  .menuOpen {
+    transform: translateX(0);
+  }
+
+  .menuClosed {
+    transform: translateX(-100%);
+  }
+
+  .navBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .navBtns button {
+    background: #f5c518;
+    color: #181818;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Jersey 15', monospace;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .navBtns button.active {
+    background: #444;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+  .logoutBtnMobile {
+    display: flex;
+    padding: 0.7rem 2.1rem;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-family: 'Jersey 15', monospace;
+    cursor: pointer;
+    font-weight: bold;
   }
 }

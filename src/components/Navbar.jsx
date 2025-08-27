@@ -1,3 +1,4 @@
+// Navbar.jsx
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import Logo from "./Logo";
@@ -11,24 +12,39 @@ export default function Navbar({ onNavigate, current, onLogout }) {
   };
 
   return (
-    <nav className={styles.navbar}>
-      {/* Bloque izquierdo: logout en desktop */}
-      <div className={styles.leftBlock}>
-        <button
-          className={`${styles.logoutBtn} ${styles.desktopOnly}`}
-          onClick={onLogout}
-        >
-          🚪 Salir
-        </button>
-      </div>
+    <>
+      <nav className={styles.navbar}>
+        <div className={styles.leftBlock}>
+          <Logo onClick={() => handleNav("home")} disabled={current === "home"} />
+          <span className={styles.centerText}>Tu estilo, tu mundo ✨</span>
+        </div>
 
-      {/* Bloque central: logo absolutamente centrado */}
-      <div className={styles.centerBlock}>
-        <Logo onClick={() => handleNav("home")} disabled={current === "home"} />
-      </div>
+        {/* Contenedor de navegación para escritorio */}
+        <div className={styles.desktopNav}>
+          <button
+            className={current === "home" ? styles.active : ""}
+            onClick={() => handleNav("home")}
+          >
+            🏠 Inicio
+          </button>
+          <button
+            className={current === "closet" ? styles.active : ""}
+            onClick={() => handleNav("closet")}
+          >
+            👚 Closet
+          </button>
+          <button
+            className={current === "recs" ? styles.active : ""}
+            onClick={() => handleNav("recs")}
+          >
+            ✨ Recomendaciones
+          </button>
+          <button className={styles.logoutBtn} onClick={onLogout}>
+            🚪 Salir
+          </button>
+        </div>
 
-      {/* Bloque derecho: menú hamburguesa */}
-      <div className={styles.rightBlock}>
+        {/* Botón de menú de hamburguesa para móvil */}
         <button
           className={styles.menuBtn}
           onClick={() => setOpen((o) => !o)}
@@ -36,46 +52,39 @@ export default function Navbar({ onNavigate, current, onLogout }) {
         >
           <span className={styles.menuIcon}>&#9776;</span>
         </button>
-      </div>
+      </nav>
 
-      {/* Menú lateral (mobile) */}
-      <div className={open ? styles.menuOpen : styles.menuClosed}>
-        <div className={styles.menuLogo}>
-          <Logo onClick={() => handleNav("home")} disabled={current === "home"} />
+      {/* Menú lateral (móvil) */}
+      <div className={`${styles.menu} ${open ? styles.menuOpen : styles.menuClosed}`}>
+        <div className={styles.navBtns}>
+          <button
+            className={current === "home" ? styles.active : ""}
+            onClick={() => handleNav("home")}
+          >
+            <span className={styles.icon}>🏠</span>
+            <span className={styles.btnText}>Inicio</span>
+          </button>
+          <button
+            className={current === "closet" ? styles.active : ""}
+            onClick={() => handleNav("closet")}
+          >
+            <span className={styles.icon}>👚</span>
+            <span className={styles.btnText}>Closet</span>
+          </button>
+          <button
+            className={current === "recs" ? styles.active : ""}
+            onClick={() => handleNav("recs")}
+          >
+            <span className={styles.icon}>✨</span>
+            <span className={styles.btnText}>Recomendaciones</span>
+          </button>
         </div>
-
-        <button
-          className={current === "home" ? styles.active : ""}
-          onClick={() => handleNav("home")}
-        >
-          <span className={styles.icon} role="img" aria-label="Inicio">🏠</span>
-          <span className={styles.btnText}>Inicio</span>
-        </button>
-        <button
-          className={current === "closet" ? styles.active : ""}
-          onClick={() => handleNav("closet")}
-        >
-          <span className={styles.icon} role="img" aria-label="Closet">👚</span>
-          <span className={styles.btnText}>Closet</span>
-        </button>
-        <button
-          className={current === "recs" ? styles.active : ""}
-          onClick={() => handleNav("recs")}
-        >
-          <span className={styles.icon} role="img" aria-label="Recomendaciones">✨</span>
-          <span className={styles.btnText}>Recomendaciones</span>
-        </button>
-
-        {/* Logout en mobile */}
-        <button
-          className={`${styles.logoutBtn} ${styles.mobileOnly}`}
-          onClick={onLogout}
-        >
+        <button className={styles.logoutBtnMobile} onClick={onLogout}>
           🚪 Cerrar sesión
         </button>
       </div>
 
       {open && <div className={styles.overlay} onClick={() => setOpen(false)} />}
-    </nav>
+    </>
   );
 }
