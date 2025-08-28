@@ -1,56 +1,111 @@
-.menuLogo {
+/* Navbar general */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  height: 64px;
+  background: #181818;
+  color: #fff;
+  z-index: 100;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden; /* evita que se salga contenido */
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.centerText {
+  font-family: 'Jersey 15', monospace;
+  color: #d9d9d9;
+}
+
+/* Logo */
+.brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.2rem;
-  margin-top: -1.2rem;
 }
-@media (max-width: 600px) {
-  .menuLogo .logo {
-    font-size: 1.5rem;
-    color: #fff;
-  }
-  .menuLogo .subtitle {
-    font-size: 0.9rem;
-    color: #d9d9d9;
-    line-height: 0.8;
-  }
+
+.logo {
+  font-family: 'Jersey 15', monospace;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #f5c518;
 }
-/* --- Hamburguesa y menú lateral para móvil --- */
-.menuBtn {
+
+.subtitle {
+  font-family: 'Jersey 15', monospace;
+  font-size: 1rem;
+  line-height: 0.8;
+  color: #d9d9d9;
+}
+
+/* Navegación escritorio */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* ajusta botones en pantallas pequeñas */
+  min-width: 0;
+}
+
+.desktopNav button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Jersey 15', monospace;
+}
+
+.desktopNav button.active {
+  background: #f5c518;
+  color: #181818;
+}
+
+/* Botón salir escritorio */
+.logoutBtn {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-family: 'Jersey 15', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.logoutBtn:hover {
+  background: #ff6666;
+}
+
+/* Botón de menú y menú móvil */
+.menuBtn,
+.menu,
+.logoutBtnMobile {
   display: none;
 }
-@media (max-width: 600px) {
-  .menuBtn {
-    display: flex;
-    position: absolute;
-    right: 0.8rem;
-    top: 0.8rem;
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
-    max-width: 44px;
-    max-height: 44px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    background: #222;
-    align-items: center;
-    justify-content: center;
-    z-index: 201;
-    padding: 0;
-  }
-}
+
 .menuIcon {
   font-size: 2.1rem;
 }
-.menuOpen {
-  display: none;
-}
-.menuClosed {
-  display: none;
-}
+
+/* Overlay móvil */
 .overlay {
   position: fixed;
   top: 0;
@@ -60,153 +115,92 @@
   background: rgba(0,0,0,0.18);
   z-index: 199;
 }
-@media (max-width: 600px) {
-  .navbar {
-    height: 56px;
-    padding: 0;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    background: #181818;
-    position: fixed;
-    z-index: 100;
-    user-select: none;
-    touch-action: none;
+
+/* Responsive <=768px */
+@media (max-width: 768px) {
+  .leftBlock .centerText,
+  .desktopNav {
+    display: none;
   }
-  .brand {
-    position: relative;
-    left: 0;
-    transform: none;
-    min-width: 0;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
+
   .menuBtn {
     display: flex;
-    background: #222;
+    background: transparent;
     border: none;
-    color: #fff;
-    font-size: 2rem;
-    position: absolute;
-    right: 0.8rem;
-    top: 0.8rem;
-    z-index: 201;
     cursor: pointer;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    font-size: 2.5rem;
   }
-  .menuOpen {
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .menu {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    max-width: 100vw;
+    width: 80%;
+    max-width: 400px;
     height: auto;
     background: #222;
     z-index: 200;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-    padding-top: 4.5rem;
-    padding-bottom: 2rem;
-    gap: 1.2rem;
+    padding: 1rem;
+    gap: 0.8rem;
     align-items: stretch;
-    transition: transform 0.2s;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    transition: transform 0.2s ease-in-out;
+    justify-content: flex-start;
+    transform: translateX(-100%);
   }
-}
-/* --- Desktop styles above --- */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 64px;
-    background: #181818;
-    color: #fff;
+
+  .menuOpen {
+    transform: translateX(0);
+  }
+
+  .menuClosed {
+    transform: translateX(-100%);
+  }
+
+  .navBtns {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    min-width: 320px;
-    gap: 1vw;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
+  .navBtns button {
+    background: #f5c518;
+    color: #181818;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Jersey 15', monospace;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 
-.brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-  flex: 0 0 auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.logo {
-  font-family: 'Jersey 15', monospace;
-  font-size: 2rem;
-  letter-spacing: 2px;
-}
-.subtitle {
-  font-family: 'Jersey 15', monospace;
-  font-size: 1rem;
-  line-height: 0.8;
-  color: #d9d9d9;
-}
-.navBtns button {
-  background: linear-gradient(90deg, #f5c518 60%, #232323 100%);
-  color: #181818;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Jersey 15', monospace;
-  font-size: 1.15rem;
-  padding: 0.7rem 2.1rem;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  min-width: 150px;
-  max-width: 200px;
-  white-space: nowrap;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+  .navBtns button.active {
+    background: #444;
+    color: #fff;
+    border: 2px solid #fff;
+  }
 
-
-.icon {
-  font-size: 1.2rem;
-  margin-right: 0.2rem;
-}
-.btnText {
-  display: inline;
-}
-.navBtns button:hover {
-  background: #bdbdbd;
-}
-.active {
-  background: #444444 !important; /* gris oscuro */
-  color: #fff !important;
-  border: 2px solid #fff;
+  .logoutBtnMobile {
+    display: flex;
+    padding: 0.7rem 2.1rem;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-family: 'Jersey 15', monospace;
+    cursor: pointer;
+    font-weight: bold;
+  }
 }

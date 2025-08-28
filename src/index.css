@@ -57,6 +57,11 @@ button:focus,
 button:focus-visible {
   outline: 2px solid #181818;
 }
-
-
 /* Eliminar media query para modo oscuro, forzar modo claro */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #181818; /* 👈 el mismo color del navbar o el que uses */
+  color: #fff;
+  font-family: sans-serif;
+}

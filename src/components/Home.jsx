@@ -1,40 +1,59 @@
 import React from 'react';
 import styles from './Home.module.css';
 
-
 export default function Home({ onGoToCloset, onGoToRecs }) {
   return (
     <div className={styles.homeContainer}>
-      <div className={styles.logo}>
-        <span className={styles.principalText}>~NOFACE~</span>
-        <br />
-        <span className={styles.secondaryText}>clothing</span>
+      
+      {/* Hero */}
+      <div className={styles.hero}>
+        <h2>👋 Bienvenido a tu espacio NOFACE</h2>
+        <p>Organiza tu closet, descubre combinaciones y encuentra tu estilo.</p>
       </div>
-      <div className={styles.actionsSection}>
-        <button className={styles.actionBtn} onClick={onGoToCloset}>Ver Closet</button>
-        <button className={styles.actionBtn} onClick={onGoToRecs}>Recomendaciones</button>
+
+      {/* Acciones principales */}
+      <div className={styles.quickActions}>
+        <div className={styles.actionCard} onClick={onGoToCloset}>
+          <span className={styles.actionIcon}>👕</span>
+          <h3>Closet</h3>
+          <p>Explora tus prendas guardadas</p>
+        </div>
+        <div className={styles.actionCard} onClick={onGoToRecs}>
+          <span className={styles.actionIcon}>✨</span>
+          <h3>Recomendaciones</h3>
+          <p>Descubre nuevas combinaciones</p>
+        </div>
       </div>
+
+      {/* Categorías */}
       <div className={styles.featured}>
         <h3>Categorías</h3>
         <div className={styles.categoryGrid}>
           <div className={styles.categoryCard}>
-            <span className={styles.emoji} role="img" aria-label="Camiseta">👕</span>
-            <span>Camiseta</span>
+            
+            <span>Camisetas</span>
           </div>
           <div className={styles.categoryCard}>
-            <span className={styles.emoji} role="img" aria-label="Pantalón">👖</span>
-            <span>Pantalón</span>
+           
+            <span>Pantalones</span>
           </div>
           <div className={styles.categoryCard}>
-            <span className={styles.emoji} role="img" aria-label="Zapatos">👟</span>
+            
             <span>Zapatos</span>
           </div>
           <div className={styles.categoryCard}>
-            <span className={styles.emoji} role="img" aria-label="Gorra">🧢</span>
-            <span>Gorra</span>
+            
+            <span>Accesorios</span>
           </div>
         </div>
       </div>
+
+      {/* Inspiración del día */}
+      <div className={styles.tipCard}>
+        <h4>💡 Tip de estilo</h4>
+        <p>Combina tonos neutros con un accesorio llamativo para destacar sin perder elegancia.</p>
+      </div>
+
     </div>
   );
 }
