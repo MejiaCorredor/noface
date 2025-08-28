@@ -1,8 +1,11 @@
-# Noface Closet App
 
-Aplicación híbrida de closet offline hecha con React + Vite.
-## Características
-- Login y autenticación local
+# NOFACE Closet App
+
+Aplicación de closet offline hecha con React + Vite.
+
+## Funcionalidades principales
+
+- Autenticación local (login)
 - Home con categorías y prendas destacadas
 - Closet: visualización, subida y edición de prendas
 - Carrusel para combinar ropa
@@ -12,52 +15,41 @@ Aplicación híbrida de closet offline hecha con React + Vite.
 - Soporte para imágenes locales
 - Navegación tipo app móvil
 
-## Guía de instalación y desarrollo colaborativo
-### 1. Requisitos previos
-- Node.js 18+ (incluye npm y npx)
-- Git
+---
 
-### 2. Instalación del proyecto
-1. Clona este repositorio:
+## Instalación rápida
+
+1. Clona el repositorio:
 	```bash
 	git clone <URL-del-repo>
-	```
-2. Entra a la carpeta del proyecto:
-	```bash
 	cd nofacev2
-	```
-3. Instala las dependencias:
-	```bash
 	npm install
-	```
-4. Inicia el servidor de desarrollo:
-	```bash
 	npm run dev
 	```
-5. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+2. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-### 3. Estructura del proyecto
+## Estructura del proyecto
+
 - `src/components/` — Componentes reutilizables (Login, Closet, Navbar, etc.)
 - `src/pages/` — Páginas principales y ruteo
-- `src/utils/` — Utilidades y helpers
+- `src/assets/` — Recursos gráficos
 
-### 4. Buenas prácticas para colaborar
+## Colaboración
+
 - Crea una rama por cada feature/bugfix: `git checkout -b feature/nombre`
 - Haz commits claros y descriptivos
 - Antes de hacer push, ejecuta `npm run dev` para verificar que no hay errores
 - Haz pull requests para revisión de código
-- Usa el archivo `.github/copilot-instructions.md` para tips de desarrollo asistido
 
-### 5. Recursos útiles
-- [Documentación de React](https://react.dev/)
-- [Documentación de Vite](https://vitejs.dev/)
-- [Guía de CSS Modules](https://github.com/css-modules/css-modules)
+## Recursos útiles
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
 
 ---
 
-## Créditos
 Inspirado en wireframes proporcionados por el usuario.
-# React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
