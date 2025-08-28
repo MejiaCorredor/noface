@@ -5,6 +5,7 @@ import Logo from "./Logo";
 
 export default function Navbar({ onNavigate, current, onLogout }) {
   const [showConfirm, setShowConfirm] = useState(false);
+  const [showBye, setShowBye] = useState(false);
 
   const handleNav = (to) => {
     setOpen(false);
@@ -39,9 +40,24 @@ export default function Navbar({ onNavigate, current, onLogout }) {
       {showConfirm && (
         <ConfirmModal
           message="¿Seguro que deseas cerrar sesión?"
-          onConfirm={() => { setShowConfirm(false); onLogout(); }}
+          onConfirm={() => {
+            setShowConfirm(false);
+            setShowBye(true);
+            setTimeout(() => {
+              setShowBye(false);
+              onLogout();
+            }, 1600);
+          }}
           onCancel={() => setShowConfirm(false)}
         />
+      )}
+      {showBye && (
+        <div style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:9999,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(0,0,0,0.18)'}}>
+          <div style={{background:'#181818',borderRadius:16,padding:'2.5rem 2.5rem',boxShadow:'0 4px 32px #0008',textAlign:'center',color:'#f5c518',fontFamily:'Jersey 15, monospace',fontSize:'2rem'}}>
+            <span style={{fontSize:'4rem',display:'block'}}>👋</span>
+            ¡Que tengas un feliz día!
+          </div>
+        </div>
       )}
     </>
   );

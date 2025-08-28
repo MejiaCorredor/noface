@@ -6,17 +6,22 @@ export default function ConfirmModal({ prendas, onConfirm, onCancel, message }) 
   const [showCongrats, setShowCongrats] = React.useState(false);
 
   const handleConfirm = () => {
-    setShowCongrats(true);
-    setTimeout(() => {
-      setShowCongrats(false);
+    // Solo mostrar animación si hay prendas
+    if (prendas && prendas.length > 0) {
+      setShowCongrats(true);
+      setTimeout(() => {
+        setShowCongrats(false);
+        onConfirm();
+      }, 1400);
+    } else {
       onConfirm();
-    }, 1400);
+    }
   };
 
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        {showCongrats && (
+        {showCongrats && prendas && prendas.length > 0 && (
           <div className={styles.congratsAnim}>
             <span role="img" aria-label="felicitación" style={{fontSize:'4.5rem',display:'block'}}>🎉</span>
             <div className={styles.congratsText}>¡Excelente outfit!<br />Que tengas un feliz día</div>
