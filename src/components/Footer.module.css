@@ -1,0 +1,63 @@
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 64px;
+  background: #181818;
+  border-top: 2px solid #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 -2px 16px 0 rgba(0,0,0,0.18);
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.footer button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1.7rem;
+}
+
+
+.footer button:active,
+.footer button.active {
+  background: #f5c518;
+  color: #181818;
+  box-shadow: 0 0 0 3px #f5c51855, 0 2px 8px 0 #0002;
+  border-radius: 12px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  stroke: #fff;
+  color: #fff;
+  fill: none;
+  transition: stroke 0.2s, color 0.2s;
+}
+
+.footer button.active .icon svg {
+  stroke: #181818;
+  color: #181818;
+}
+
+.cartBtn {
+  border-left: 2px solid #222;
+}
