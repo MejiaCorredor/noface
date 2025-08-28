@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import Home from '../components/Home';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Closet from '../components/Closet';
 import Combinador from '../components/Combinador';
 import Recomendaciones from '../components/Recomendaciones';
@@ -116,8 +115,7 @@ export default function MainRouter() {
         current={page}
         onLogout={handleLogout}
       />
-  <div style={{ paddingTop: 60, paddingBottom: 70 }}>{content}</div>
-  <Footer onNavigate={handleNavigate} current={page} />
+      <div style={{ paddingTop: 60 }}>{content}</div>
     </>
   );
 }
