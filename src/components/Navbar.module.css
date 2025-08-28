@@ -1,3 +1,28 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon svg {
+  stroke: #fff;
+  color: #fff;
+  fill: none;
+  transition: stroke 0.2s, color 0.2s;
+}
+.logoutBtnHover .icon svg,
+.logoutBtn:hover .icon svg {
+  stroke: #fff;
+  color: #fff;
+}
+.rightBlock {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -10,17 +35,32 @@
   z-index: 100;
   padding: 0 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .leftBlock {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  height: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
   min-width: 0;
+  z-index: 2;
+}
+.centerLogo {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 .centerText {
@@ -86,8 +126,10 @@
   flex-shrink: 0;
 }
 
+.logoutBtnHover,
 .logoutBtn:hover {
-  background: #ff6666;
+  background: #c82333 !important;
+  color: #fff;
 }
 
 .menuBtn,
@@ -115,6 +157,10 @@
   .leftBlock .centerText,
   .desktopNav {
     display: none;
+  }
+  .centerLogo {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .menuBtn {
