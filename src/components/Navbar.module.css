@@ -1,4 +1,3 @@
-/* Navbar general */
 .navbar {
   position: fixed;
   top: 0;
@@ -14,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  overflow: hidden; /* evita que se salga contenido */
+  overflow: hidden;
 }
 
 .leftBlock {
@@ -29,7 +28,6 @@
   color: #d9d9d9;
 }
 
-/* Logo */
 .brand {
   display: flex;
   flex-direction: column;
@@ -51,12 +49,11 @@
   color: #d9d9d9;
 }
 
-/* Navegación escritorio */
 .desktopNav {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap; /* ajusta botones en pantallas pequeñas */
+  flex-wrap: wrap;
   min-width: 0;
 }
 
@@ -76,7 +73,6 @@
   color: #181818;
 }
 
-/* Botón salir escritorio */
 .logoutBtn {
   background: #ff4d4d;
   color: #fff;
@@ -94,7 +90,6 @@
   background: #ff6666;
 }
 
-/* Botón de menú y menú móvil */
 .menuBtn,
 .menu,
 .logoutBtnMobile {
@@ -106,7 +101,6 @@
   color: #fff;
 }
 
-/* Overlay móvil */
 .overlay {
   position: fixed;
   top: 0;
@@ -117,7 +111,6 @@
   z-index: 199;
 }
 
-/* Responsive <=768px */
 @media (max-width: 768px) {
   .leftBlock .centerText,
   .desktopNav {

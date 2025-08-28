@@ -4,14 +4,12 @@ import ConfirmModal from './ConfirmModal';
 import styles from './Combinador.module.css';
 
 export default function Combinador({ clothes, onUse }) {
-  // Separar por tipo
   const camisetas = clothes.filter(c => c.type === 'camiseta');
   const pantalones = clothes.filter(c => c.type === 'pantalon');
   const zapatos = clothes.filter(c => c.type === 'zapatos');
   const gorras = clothes.filter(c => c.type === 'gorra');
 
 
-  // Estado de selección
   const [iC, setIC] = useState(0);
   const [iP, setIP] = useState(0);
   const [iZ, setIZ] = useState(0);
@@ -19,7 +17,6 @@ export default function Combinador({ clothes, onUse }) {
   const [showConfirm, setShowConfirm] = useState(false);
 
 
-  // Agregar opción de 'Sin gorra' al inicio
   const gorrasConNinguna = [{ name: 'Sin gorra', type: 'gorra', image: null, size: null }, ...gorras];
   const seleccionActual = [gorrasConNinguna[iG], camisetas[iC], pantalones[iP], zapatos[iZ]]
     .filter(p => !(p && p.type === 'gorra' && p.name === 'Sin gorra'));
@@ -39,7 +36,6 @@ export default function Combinador({ clothes, onUse }) {
     <div className={styles.combinadorContainer}>
       <h2 style={{color:'#fff',fontFamily:"'Jersey 15', monospace",fontSize:'2.2rem',marginBottom:'2.2rem',letterSpacing:'1px',textAlign:'center'}}>Combina tu outfit</h2>
       <div className={styles.carousels}>
-        {/* Gorras */}
         <div className={styles.carouselGroup}>
           <div className={styles.carouselLabel}>Gorra</div>
           <Carousel

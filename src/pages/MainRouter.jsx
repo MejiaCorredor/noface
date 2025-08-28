@@ -30,12 +30,10 @@ export default function MainRouter() {
     ];
   });
 
-  // 🔹 Guardar closet en localStorage
   useEffect(() => {
     localStorage.setItem('closet', JSON.stringify(clothes));
   }, [clothes]);
 
-  // 🔹 Guardar sesión si se eligió "recordar"
   useEffect(() => {
     if (remember && user) {
       localStorage.setItem('user', user);
@@ -44,7 +42,6 @@ export default function MainRouter() {
     }
   }, [user, remember]);
 
-  // 🔹 Cambiar título de pestaña y favicon
   useEffect(() => {
     const base = 'NOFACE';
     const pageTitle = PAGE_TITLES[page] || '';
@@ -56,42 +53,34 @@ export default function MainRouter() {
     }
   }, [page]);
 
-  // 🚀 Navegación
   const handleNavigate = (to) => setPage(to);
 
-  // 🚀 Volver al home (para logo clickeable)
   const handleGoHome = () => setPage('home');
 
-  // 🚀 Subir prenda
   const handleUpload = (prenda) => setClothes(prev => [...prev, prenda]);
 
-  // 🚀 Marcar prenda como usada
   const handleUse = (prenda) => {
     setClothes(prev =>
       prev.map(c => (c === prenda ? { ...c, lastUsed: Date.now() } : c))
     );
   };
 
-  // 🚀 Login
   const handleLogin = (username, rememberChecked) => {
     setUser(username);
     setRemember(rememberChecked);
     setPage('home');
   };
 
-  // 🚀 Logout
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('user');
     setPage('home');
   };
 
-  // 🔒 Mostrar login si no hay sesión activa
   if (!user) {
     return <Login onLogin={handleLogin} />;
   }
 
-  // Contenido principal
   let content = null;
   if (page === 'home') {
     content = (

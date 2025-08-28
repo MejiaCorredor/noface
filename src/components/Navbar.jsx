@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import Logo from "./Logo";
@@ -19,7 +18,6 @@ export default function Navbar({ onNavigate, current, onLogout }) {
           <span className={styles.centerText}>Tu estilo, tu mundo ✨</span>
         </div>
 
-        {/* Contenedor de navegación para escritorio */}
         <div className={styles.desktopNav}>
           <button
             className={current === "home" ? styles.active : ""}
@@ -44,7 +42,6 @@ export default function Navbar({ onNavigate, current, onLogout }) {
           </button>
         </div>
 
-        {/* Botón de menú de hamburguesa para móvil */}
         <button
           className={styles.menuBtn}
           onClick={() => setOpen((o) => !o)}
@@ -54,7 +51,6 @@ export default function Navbar({ onNavigate, current, onLogout }) {
         </button>
       </nav>
 
-      {/* Menú lateral (móvil) */}
       <div className={`${styles.menu} ${open ? styles.menuOpen : styles.menuClosed}`}>
         <div className={styles.navBtns}>
           <button
