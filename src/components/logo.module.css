@@ -1,0 +1,45 @@
+.logoContainer {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.2s ease;
+}
+
+.logoContainer:hover {
+  opacity: 0.8;
+}
+
+.logoText {
+  font-family: 'Jersey 15', monospace;
+  font-size: 1.5rem;
+  color: #f5c518;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .logoText {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoContainer {
+    top: 0.8rem;
+  }
+  
+  .logoText {
+    font-size: 1.2rem;
+  }
+}
+.centerBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 0 auto;
+  position: relative;
+}

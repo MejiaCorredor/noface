@@ -1,73 +1,379 @@
+/* Container principal */
 .recsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   padding: 5.5rem 1rem 2.5rem 1rem;
-  min-height: 80vh;
+  min-height: 100vh;
   background: #232323;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-.recsContainer h2 {
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.header h2 {
   font-family: 'Jersey 15', monospace;
   font-size: 2.7rem;
   color: #fff;
-  margin-bottom: 2.2rem;
-  text-align: center;
+  margin: 0 0 0.5rem 0;
 }
-.climaSel {
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  color: #fff;
-}
-.climaSel select {
-  font-family: 'Jersey 15', monospace;
+
+.subtitle {
+  color: #b8c5d6;
   font-size: 1.1rem;
-  margin-left: 0.7rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Tarjeta de clima */
+.climaCard {
+  background: #353535;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid #444;
+  width: 100%;
+  max-width: 500px;
+}
+
+.climaIcon {
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.climaSelector {
+  flex: 1;
+}
+
+.climaSelector label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #e8f4fd;
+}
+
+.climaSelect {
+  width: 100%;
   padding: 0.4rem 1.2rem;
   border-radius: 8px;
   border: 1px solid #444;
   background: #232323;
   color: #fff;
+  font-size: 1.1rem;
+  font-family: 'Jersey 15', monospace;
+  cursor: pointer;
 }
-.recsList {
-  margin-bottom: 2.2rem;
+
+.climaSelect:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+}
+
+.climaSelect option {
+  background: #1a1a2e;
+  color: white;
+}
+
+/* Grid de recomendaciones */
+.recommendationsGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
-.recsList h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-  color: #fff;
-  text-align: center;
-}
-.recsList ul {
-  list-style: none;
-  padding: 0;
-}
-.recsList li {
+
+/* Tarjeta de recomendaciones */
+.recsCard {
   background: #353535;
   border-radius: 8px;
-  margin-bottom: 0.7rem;
-  padding: 0.7rem 1.2rem;
-  font-size: 1.1rem;
+  border: 1px solid #444;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cardHeader {
+  background: #404040;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.badge {
+  background: #f5c518;
+  color: #181818;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Lista de ropa */
+.clothesList {
+  padding: 1rem;
+}
+
+.clotheItem {
   display: flex;
   align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.2rem;
+  margin-bottom: 0.7rem;
+  background: #353535;
+  border-radius: 8px;
   color: #fff;
-  text-align: center;
 }
-.menosUsada {
-  margin-top: 2.2rem;
+
+.clotheItem:hover {
+  background: #404040;
+}
+
+.clotheImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clotheImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholderImage {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.clotheInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.clotheName {
+  font-weight: 600;
+  color: #e8f4fd;
+}
+
+.clotheSize {
+  font-size: 0.85rem;
+  color: #b8c5d6;
+  opacity: 0.8;
+}
+
+/* Tarjeta especial */
+.specialCard {
   background: #f5c518;
   border-radius: 8px;
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
+  overflow: hidden;
   color: #181818;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
   font-weight: bold;
-  letter-spacing: 1px;
+  width: 100%;
+  max-width: 400px;
 }
-.menosUsada h3 {
-  margin-bottom: 0.5rem;
+
+.specialHeader {
+  background: #e6b014;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid #d4a013;
+}
+
+.specialIcon {
+  font-size: 1.5rem;
+}
+
+.specialHeader h3 {
+  margin: 0;
   font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.specialContent {
+  padding: 1rem;
+}
+
+.specialNote {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Estado vacío */
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  color: #b8c5d6;
+  opacity: 0.8;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  .recsContainer {
+    padding: 4rem 1rem 2rem 1rem;
+    align-items: stretch;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .header h2 {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .climaCard {
+    padding: 1.2rem;
+    gap: 1rem;
+    align-self: center;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .climaIcon {
+    font-size: 2.5rem;
+  }
+
+  .recommendationsGrid {
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .recsCard,
+  .specialCard {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cardHeader {
+    padding: 1rem;
+  }
+
+  .clotheItem {
+    padding: 0.8rem 1rem;
+  }
+
+  .clotheImage {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recsContainer {
+    padding: 3.5rem 0.8rem 2rem 0.8rem;
+    align-items: stretch;
+  }
+
+  .header h2 {
+    font-size: 2rem;
+  }
+
+  .climaCard {
+    padding: 1rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .climaSelect {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .recommendationsGrid {
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .recsCard,
+  .specialCard {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .clotheItem {
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .clotheName {
+    font-size: 0.95rem;
+  }
+
+  .clotheSize {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mejoras adicionales para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .bounce,
+  .pulse {
+    animation: none;
+  }
+  
+  .clotheItem {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: light) {
+  .recsContainer {
+    background: linear-gradient(135deg, #f0f2f5, #e1e8ed, #d4e6f1);
+    color: #2c3e50;
+  }
+  
+  .climaSelect option {
+    background: white;
+    color: #2c3e50;
+  }
 }
