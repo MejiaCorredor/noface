@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useRef, useState } from 'react';
 import styles from './Closet.module.css';
 import UploadModal from './UploadModal';
