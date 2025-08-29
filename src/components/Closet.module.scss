@@ -2,7 +2,10 @@
 @use "../assets/mixins" as *;
 .categoryContainer {
   width: 70%;
-  margin: 0 auto 1.2rem auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
   background: #232323;
   border-radius: 16px;
   border: 2px solid $primary-color;
@@ -10,6 +13,10 @@
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   max-width: 260px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.categoryContainer * {
   text-align: center;
 }
 .categoryExpand {
@@ -27,12 +34,9 @@
   pointer-events: none;
 }
 .closetImg {
-  width: 70px;
-  height: 70px;
+  width: 600px;
+  height: 600px;
   object-fit: cover;
-    width: 220px;
-    margin: 0 auto 1.2rem auto;
-    max-width: 220px;
   display: block;
   margin: 0 auto 0.5rem auto;
   background: #181818;
@@ -147,7 +151,7 @@
   font-size: 1.35rem;
   color: $background-color;
   text-align: center;
-  border: 2.5px solid $primary-color;
+  border: none;
   box-shadow: 0 2px 12px #0003;
 }
 
