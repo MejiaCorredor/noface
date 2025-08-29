@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 /* Container principal */
 .recsContainer {
   display: flex;
@@ -18,9 +20,9 @@
 }
 
 .header h2 {
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   font-size: 2.7rem;
-  color: #fff;
+  color: $background-color;
   margin: 0 0 0.5rem 0;
 }
 
@@ -34,7 +36,7 @@
 /* Tarjeta de clima */
 .climaCard {
   background: #353535;
-  border-radius: 8px;
+  border-radius: $border-radius;
   padding: 1.5rem;
   margin-bottom: 2rem;
   display: flex;
@@ -70,7 +72,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #e8f4fd;
+  color: $primary-color;
 }
 
 .climaSelect {

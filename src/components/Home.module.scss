@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .homeContainer {
   padding: 2rem 1rem;
   min-height: 100vh;
@@ -16,8 +18,8 @@
 }
 .hero h2 {
   font-size: 1.8rem;
-  color: #f5c518;
-  font-family: 'Jersey 15', monospace;
+  color: $primary-color;
+  font-family: 'Jersey 15', $font-main;
   margin-bottom: 0.5rem;
 }
 .hero p {
@@ -35,7 +37,7 @@
 }
 .actionCard {
   background: #232323;
-  border-radius: 16px;
+  border-radius: $border-radius;
   padding: 1.5rem;
   min-width: 150px;
   text-align: center;
@@ -46,7 +48,7 @@
 }
 .actionCard:hover {
   transform: translateY(-5px);
-  border: 2px solid #f5c518;
+  border: 2px solid $primary-color;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 .actionIcon {
@@ -68,15 +70,15 @@
   width: 100%;
   max-width: 420px;
   background: #232323;
-  border-radius: 18px;
+  border-radius: $border-radius;
   box-shadow: 0 6px 22px rgba(0,0,0,0.4);
   padding: 1.5rem;
-  border: 2.5px solid #f5c518;
+  border: 2.5px solid $primary-color;
 }
 .featured h3 {
   text-align: center;
-  font-family: 'Jersey 15', monospace;
-  color: #fff;
+  font-family: 'Jersey 15', $font-main;
+  color: $background-color;
   margin-bottom: 1rem;
 }
 .categoryGrid {

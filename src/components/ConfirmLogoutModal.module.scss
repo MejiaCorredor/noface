@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -70,17 +72,17 @@
   background: #444;
 }
 .confirmBtn {
-  background: #f5c518;
+  background: $primary-color;
   color: #181818;
   border: none;
-  border-radius: 8px;
+  border-radius: $border-radius;
   padding: 0.6rem 1.5rem;
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s;
+  transition: $transition;
 }
 .confirmBtn:hover {
-  background: #ffe066;
+  background: lighten($primary-color, 15%);
 }

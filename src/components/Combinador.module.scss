@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .carouselGroup {
   display: flex;
   flex-direction: column;
@@ -9,8 +11,8 @@
   margin-right: auto;
 }
 .carouselLabel {
-  color: #f5c518;
-  font-family: 'Jersey 15', monospace;
+  color: $primary-color;
+  font-family: 'Jersey 15', $font-main;
   font-size: 1.1rem;
   margin-bottom: 0.7rem;
   letter-spacing: 1px;
@@ -23,13 +25,13 @@
   padding: 5.5rem 1rem 2.5rem 1rem;
   min-height: 80vh;
   background: #232323;
-  color: #fff;
+  color: $background-color;
   text-align: center;
 }
 .combinadorContainer h2 {
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   font-size: 2.7rem;
-  color: #fff;
+  color: $background-color;
   margin-bottom: 2.2rem;
   text-align: center;
 }
@@ -41,18 +43,18 @@
   width: 100%;
 }
 .usarBtn {
-  background: #f5c518;
+  background: $primary-color;
   color: #181818;
   border: none;
-  border-radius: 8px;
-  font-family: 'Jersey 15', monospace;
+  border-radius: $border-radius;
+  font-family: 'Jersey 15', $font-main;
   font-size: 1rem;
   padding: 0.6rem 1.5rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: $transition;
   font-weight: bold;
   letter-spacing: 1px;
 }
 .usarBtn:hover {
-  background: #ffe066;
+  background: lighten($primary-color, 15%);
 }

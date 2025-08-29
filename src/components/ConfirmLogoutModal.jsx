@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ConfirmLogoutModal.module.css";
+import styles from "./ConfirmLogoutModal.module.scss";
 
 export default function ConfirmLogoutModal({ onConfirm, onCancel, showCongrats }) {
   return (
