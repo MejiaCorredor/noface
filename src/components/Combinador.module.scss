@@ -58,3 +58,23 @@
 .usarBtn:hover {
   background: lighten($primary-color, 15%);
 }
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #f5c518;
+    cursor: pointer;
+  }
+  
+  span {
+    cursor: pointer;
+    user-select: none;
+  }
+}
