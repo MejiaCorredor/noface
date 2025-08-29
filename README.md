@@ -1,67 +1,56 @@
 
+
 # NOFACE Closet App
 
-Aplicación de closet offline hecha con React + Vite.
+Aplicación de closet offline desarrollada con **React** y **Vite**.
 
 ## Funcionalidades principales
 
-- Autenticación local (login)
-- Home con categorías y prendas destacadas
-- Closet: visualización, subida y edición de prendas
-- Carrusel para combinar ropa
-- Recomendaciones según clima (selección manual)
-- Seguimiento de uso de prendas
-- Persistencia offline (localStorage)
-- Soporte para imágenes locales
-- Navegación tipo app móvil
+- **Autenticación local:** login simple y persistencia de usuario en localStorage.
+- **Home:** página principal con categorías y prendas destacadas.
+- **Closet:** visualización, subida, edición y eliminación de prendas (con soporte para imágenes locales).
+- **Carrusel y combinador:** para crear combinaciones de ropa.
+- **Recomendaciones:** sugerencias de outfits según clima (selección manual).
+- **Seguimiento de uso:** registro de la última vez que se usó cada prenda.
+- **Persistencia offline:** toda la información se guarda en localStorage, sin backend.
+- **Navegación tipo app móvil:** interfaz optimizada para dispositivos móviles.
 
----
+## Tecnologías y librerías utilizadas
 
-## Instalación rápida
+- [React 19](https://react.dev/) + [React DOM](https://react.dev/learn/react-dom)
+- [Vite](https://vitejs.dev/) (dev server y build)
+- [CSS Modules](https://github.com/css-modules/css-modules) para estilos locales
+- [Sass](https://sass-lang.com/) para estilos avanzados
+- [ESLint](https://eslint.org/) para linting
+
+## Instalación y uso
 
 1. Clona el repositorio:
 	```bash
 	git clone <URL-del-repo>
+	cd noface
+	npm install
+	npm run dev
+	```
+2. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-	# NOFACE Closet App
+## Estructura del proyecto
 
-	Aplicación de closet offline desarrollada con React y Vite.
+- `src/components/` — Componentes reutilizables (Login, Closet, Navbar, Home, Carrusel, Recomendaciones, Footer, etc.)
+- `src/pages/` — Páginas principales y ruteo (`MainRouter.jsx`)
+- `src/assets/` — Recursos gráficos y estilos globales
+- `public/` — Archivos estáticos
 
-	## Funcionalidades
+## Notas
 
-	- Autenticación local (login)
-	- Página principal con categorías y prendas destacadas
-	- Closet: ver, subir y editar prendas
-	- Carrusel para combinar ropa
-	- Recomendaciones según clima (selección manual)
-	- Seguimiento de uso de prendas
-	- Persistencia offline usando localStorage
-	- Soporte para imágenes locales
-	- Navegación tipo app móvil
+- El proyecto es **100% offline**: no requiere conexión a internet para funcionar después de la instalación.
+- Todas las imágenes y datos se almacenan localmente en el navegador.
 
-	---
+---
 
-	## Instalación
+## Créditos y recursos
 
-	1. Clona el repositorio:
-		```bash
-		git clone <URL-del-repo>
-		cd nofacev2
-		npm install
-		npm run dev
-		```
-	2. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
-
-	## Estructura del proyecto
-
-	- `src/components/` — Componentes reutilizables (Login, Closet, Navbar, etc.)
-	- `src/pages/` — Páginas principales y ruteo
-	- `src/assets/` — Recursos gráficos
-
-	---
-
-	## Links de investigación
-
-	- [React](https://react.dev/)
-	- [Vite](https://vitejs.dev/)
-	- [CSS Modules](https://github.com/css-modules/css-modules)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Sass](https://sass-lang.com/)
