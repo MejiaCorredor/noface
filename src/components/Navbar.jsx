@@ -1,86 +1,60 @@
 import React, { useState } from "react";
-import styles from "./Navbar.module.css";
+import styles from "./Navbar.module.scss";
 import Logo from "./Logo";
+import ConfirmLogoutModal from "./ConfirmLogoutModal";
 
 export default function Navbar({ onNavigate, current, onLogout }) {
-  const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showCongrats, setShowCongrats] = useState(false);
 
   const handleNav = (to) => {
-    setOpen(false);
     onNavigate(to);
+  };
+
+  const handleLogoutClick = () => {
+    setShowModal(true);
+  };
+
+  const handleConfirmLogout = () => {
+    setShowCongrats(true);
+    setTimeout(() => {
+      setShowCongrats(false);
+      setShowModal(false);
+      onLogout();
+    }, 1400);
+  };
+
+  const handleCancelLogout = () => {
+    setShowModal(false);
+    setShowCongrats(false);
   };
 
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.leftBlock}>
+        <div className={styles.centerLogoBlock}>
           <Logo onClick={() => handleNav("home")} disabled={current === "home"} />
-          <span className={styles.centerText}>Tu estilo, tu mundo ✨</span>
         </div>
-
-        <div className={styles.desktopNav}>
-          <button
-            className={current === "home" ? styles.active : ""}
-            onClick={() => handleNav("home")}
-          >
-            🏠 Inicio
-          </button>
-          <button
-            className={current === "closet" ? styles.active : ""}
-            onClick={() => handleNav("closet")}
-          >
-            👚 Closet
-          </button>
-          <button
-            className={current === "recs" ? styles.active : ""}
-            onClick={() => handleNav("recs")}
-          >
-            ✨ Recomendaciones
-          </button>
-          <button className={styles.logoutBtn} onClick={onLogout}>
-            🚪 Salir
-          </button>
-        </div>
-
         <button
-          className={styles.menuBtn}
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Menú"
+          className={styles.logoutBtnNav}
+          onClick={handleLogoutClick}
+          aria-label="Cerrar sesión"
+          style={{position: 'absolute', right: 16, top: 8, background: 'none', border: 'none', outline: 'none', color: '#fff', fontSize: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '16px', width: '48px', height: '48px', margin: 0, padding: 0, transition: 'background 0.2s, color 0.2s'}}
+          onMouseOver={e => { e.currentTarget.style.background = '#222'; e.currentTarget.style.color = '#ffe066'; }}
+          onMouseOut={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#fff'; }}
         >
-          <span className={styles.menuIcon}>&#9776;</span>
+          <span style={{display:'flex',alignItems:'center',justifyContent:'center',width:'28px',height:'28px'}}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </span>
         </button>
       </nav>
-
-      <div className={`${styles.menu} ${open ? styles.menuOpen : styles.menuClosed}`}>
-        <div className={styles.navBtns}>
-          <button
-            className={current === "home" ? styles.active : ""}
-            onClick={() => handleNav("home")}
-          >
-            <span className={styles.icon}>🏠</span>
-            <span className={styles.btnText}>Inicio</span>
-          </button>
-          <button
-            className={current === "closet" ? styles.active : ""}
-            onClick={() => handleNav("closet")}
-          >
-            <span className={styles.icon}>👚</span>
-            <span className={styles.btnText}>Closet</span>
-          </button>
-          <button
-            className={current === "recs" ? styles.active : ""}
-            onClick={() => handleNav("recs")}
-          >
-            <span className={styles.icon}>✨</span>
-            <span className={styles.btnText}>Recomendaciones</span>
-          </button>
-        </div>
-        <button className={styles.logoutBtnMobile} onClick={onLogout}>
-          🚪 Cerrar sesión
-        </button>
-      </div>
-
-      {open && <div className={styles.overlay} onClick={() => setOpen(false)} />}
+      {showModal && (
+        <ConfirmLogoutModal
+          onConfirm={handleConfirmLogout}
+          onCancel={handleCancelLogout}
+          showCongrats={showCongrats}
+        />
+      )}
     </>
   );
 }

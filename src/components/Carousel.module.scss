@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .carousel {
   display: flex;
   align-items: center;
@@ -9,20 +11,20 @@
   min-width: 170px;
   min-height: 170px;
   background: #232323;
-  border-radius: 18px;
-  font-family: 'Jersey 15', monospace;
+  border-radius: $border-radius;
+  font-family: 'Jersey 15', $font-main;
   font-size: 1.7rem;
-  color: #fff;
+  color: $background-color;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 2px solid #f5c518;
+  border: 2px solid $primary-color;
   box-shadow: 0 2px 12px #0003;
   margin: 0 0.5rem;
 }
 .arrow {
-  background: #f5c518;
+  background: $primary-color;
   color: #181818;
   border: none;
   border-radius: 50%;
@@ -30,8 +32,8 @@
   height: 38px;
   font-size: 1.5rem;
   cursor: pointer;
-  font-family: 'Jersey 15', monospace;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  font-family: 'Jersey 15', $font-main;
+  transition: $transition, box-shadow 0.2s, transform 0.15s;
   font-weight: bold;
   box-shadow: 0 2px 8px #0002, 0 0 0 2px #fff2 inset;
   display: flex;
@@ -40,15 +42,15 @@
   outline: none;
 }
 .arrow:hover, .arrow:focus {
-  background: #ffe066;
-  box-shadow: 0 4px 16px #0003, 0 0 0 2.5px #f5c518 inset;
+  background: lighten($primary-color, 15%);
+  box-shadow: 0 4px 16px #0003, 0 0 0 2.5px $primary-color inset;
   transform: scale(1.08);
 }
 .type {
   font-size: 1.2rem;
-  color: #fff;
+  color: $background-color;
   margin-top: 1.1rem;
   text-align: center;
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   letter-spacing: 1px;
 }

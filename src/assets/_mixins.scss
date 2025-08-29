@@ -1,0 +1,22 @@
+// Mixins reutilizables para el proyecto
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius;
+  padding: 0.5rem 1.2rem;
+  font-family: $font-main;
+  cursor: pointer;
+  transition: $transition;
+}
+
+@mixin card {
+  background: $background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1rem;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Carousel.module.css';
+import styles from './Carousel.module.scss';
 
 export default function Carousel({ items }) {
   const [index, setIndex] = React.useState(0);

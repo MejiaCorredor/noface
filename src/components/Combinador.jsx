@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from './Carousel';
 import ConfirmModal from './ConfirmModal';
-import styles from './Combinador.module.css';
+import styles from './Combinador.module.scss';
 
 export default function Combinador({ clothes, onUse }) {
   const camisetas = clothes.filter(c => c.type === 'camiseta');

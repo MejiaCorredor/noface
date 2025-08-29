@@ -4,7 +4,7 @@
 
 
 import React, { useRef, useState } from 'react';
-import styles from './Closet.module.css';
+import styles from './Closet.module.scss';
 import UploadModal from './UploadModal';
 
 export default function Closet({ clothes, onUpload, onDelete }) {

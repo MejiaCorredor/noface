@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ConfirmModal.module.css';
+import styles from './ConfirmModal.module.scss';
 
 export default function ConfirmModal({ prendas, onConfirm, onCancel }) {
   const [liked, setLiked] = React.useState(false);
