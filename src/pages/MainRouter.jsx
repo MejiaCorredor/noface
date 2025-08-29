@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Closet from '../components/Closet';
 import Combinador from '../components/Combinador';
+import Historial from '../components/Historial';
 import Recomendaciones from '../components/Recomendaciones';
 import Logo from '../components/Logo';
 
@@ -60,10 +61,16 @@ export default function MainRouter() {
 
   const handleUpload = (prenda) => setClothes(prev => [...prev, prenda]);
 
-  const handleUse = (prenda) => {
+  // Recibe un array de prendas (outfit completo)
+  const handleUse = (outfit) => {
+    // Actualiza lastUsed de cada prenda usada
     setClothes(prev =>
-      prev.map(c => (c === prenda ? { ...c, lastUsed: Date.now() } : c))
+      prev.map(c => outfit.some(p => p.name === c.name && p.type === c.type) ? { ...c, lastUsed: Date.now() } : c)
     );
+    // Guarda en historial
+    const historial = JSON.parse(localStorage.getItem('historialOutfits') || '[]');
+    historial.unshift({ date: Date.now(), outfit });
+    localStorage.setItem('historialOutfits', JSON.stringify(historial));
   };
 
   const handleLogin = (username, rememberChecked) => {
@@ -104,6 +111,8 @@ export default function MainRouter() {
         <Combinador clothes={clothes} onUse={handleUse} />
       </>
     );
+  } else if (page === 'cart') {
+    content = <Historial />;
   } else {
     content = <div>Página en construcción</div>;
   }
