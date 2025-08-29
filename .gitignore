@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 ropa_ejemplos
+requisitos
 
 # Editor directories and files
 .vscode/*

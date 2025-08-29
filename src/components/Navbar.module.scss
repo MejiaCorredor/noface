@@ -1,5 +1,5 @@
-@import "../assets/variables";
-@import "../assets/mixins";
+@use "../assets/variables" as *;
+@use "../assets/mixins" as *;
 
 .navbar {
   position: fixed;
@@ -85,7 +85,7 @@
 }
 
 .logoutBtn:hover {
-  background: lighten($danger-color, 10%);
+  background: adjust-color($danger-color, $lightness: 10%);
 }
 
 .menuBtn,
