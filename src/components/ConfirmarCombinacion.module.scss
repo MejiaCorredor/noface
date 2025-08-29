@@ -1,4 +1,4 @@
-@import "../assets/variables";
+@use "../assets/variables" as *;
 
 .modalOverlay {
   position: fixed;
@@ -148,6 +148,6 @@
   color: #181818;
 
   &:hover {
-    background: lighten($primary-color, 10%);
+  background: adjust-color($primary-color, $lightness: 10%);
   }
 }

@@ -1,5 +1,5 @@
-@import "../assets/variables";
-@import "../assets/mixins";
+@use "../assets/variables" as *;
+@use "../assets/mixins" as *;
 .carouselGroup {
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
   letter-spacing: 1px;
 }
 .usarBtn:hover {
-  background: lighten($primary-color, 15%);
+  background: adjust-color($primary-color, $lightness: 15%);
 }
 .checkboxLabel {
   display: flex;

@@ -1,5 +1,5 @@
-@import "../assets/variables";
-@import "../assets/mixins";
+@use "../assets/variables" as *;
+@use "../assets/mixins" as *;
 .categoryContainer {
   width: 100%;
   margin-bottom: 2.2rem;
@@ -49,7 +49,7 @@
   transition: $transition;
 }
 .deleteBtn:hover {
-  background: lighten($danger-color, 10%);
+  background: adjust-color($danger-color, $lightness: 10%);
 }
 
 .deleteModal {
@@ -157,5 +157,5 @@
   letter-spacing: 1px;
 }
 .uploadBtn:hover {
-  background: lighten($primary-color, 15%);
+  background: adjust-color($primary-color, $lightness: 15%);
 }
