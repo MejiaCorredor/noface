@@ -1,27 +1,36 @@
-@import "../assets/variables";
-@import "../assets/mixins";
+@use "../assets/variables" as *;
+@use "../assets/mixins" as *;
+// Carousel swipe tipo wireframe
 .carousel {
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden;
+  margin: 1.2rem 0;
+  position: relative;
+  touch-action: pan-x;
+}
+.track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  margin: 2.5rem 0;
+  flex-direction: row;
+  width: 300%;
+  transition: transform 0.25s cubic-bezier(.4,1.4,.6,1);
 }
 .item {
-  min-width: 170px;
-  min-height: 170px;
-  background: #232323;
-  border-radius: $border-radius;
-  font-family: 'Jersey 15', $font-main;
-  font-size: 1.7rem;
-  color: $background-color;
+  flex: 0 0 33.33%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  border: 2px solid $primary-color;
-  box-shadow: 0 2px 12px #0003;
-  margin: 0 0.5rem;
+  transition: filter 0.2s, transform 0.2s;
+}
+.center {
+  z-index: 2;
+  transform: scale(1.08);
+  filter: none;
+}
+.side {
+  z-index: 1;
+  filter: grayscale(0.7) brightness(0.7) blur(1px);
+  transform: scale(0.85);
 }
 .arrow {
   background: $primary-color;
@@ -42,7 +51,7 @@
   outline: none;
 }
 .arrow:hover, .arrow:focus {
-  background: lighten($primary-color, 15%);
+  background: adjust-color($primary-color, $lightness: 15%);
   box-shadow: 0 4px 16px #0003, 0 0 0 2.5px $primary-color inset;
   transform: scale(1.08);
 }

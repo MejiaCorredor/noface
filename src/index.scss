@@ -1,5 +1,5 @@
-@import "./assets/variables";
-@import "./assets/mixins";
+@use "./assets/variables" as *;
+@use "./assets/mixins" as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 

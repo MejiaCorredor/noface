@@ -1,5 +1,3 @@
-
-
 # NOFACE Closet App
 
 Aplicación de closet offline desarrollada con **React** y **Vite**.
