@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import styles from './UploadModal.module.css';
+import styles from './UploadModal.module.scss';
 
 const tipos = [
   { value: 'camiseta', label: 'Camiseta' },

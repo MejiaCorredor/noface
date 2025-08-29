@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .logoContainer {
   position: absolute;
   top: 1rem;
@@ -13,9 +15,9 @@
 }
 
 .logoText {
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   font-size: 1.5rem;
-  color: #f5c518;
+  color: $primary-color;
   font-weight: bold;
   letter-spacing: 1px;
 }

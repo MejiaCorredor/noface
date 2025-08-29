@@ -1,3 +1,5 @@
+@import "../assets/variables";
+@import "../assets/mixins";
 .congratsAnim {
   display: flex;
   flex-direction: column;
@@ -7,9 +9,9 @@
   min-height: 180px;
 }
 .congratsText {
-  color: #f5c518;
+  color: $primary-color;
   font-size: 1.5rem;
-  font-family: 'Jersey 15', monospace;
+  font-family: 'Jersey 15', $font-main;
   font-weight: bold;
   text-align: center;
   margin-top: 0.7rem;
@@ -51,11 +53,11 @@
 }
 .modal {
   background: #232323;
-  border-radius: 16px;
+  border-radius: $border-radius;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   min-width: 320px;
   max-width: 95vw;
-  color: #fff;
+  color: $background-color;
   box-shadow: 0 4px 32px #0008;
   display: flex;
   flex-direction: column;
@@ -70,8 +72,8 @@
   align-items: center;
   gap: 1rem;
   background: #2e2e2e;
-  border: 2px solid #f5c518;
-  border-radius: 10px;
+  border: 2px solid $primary-color;
+  border-radius: $border-radius;
   padding: 0.7rem 1rem;
   margin-bottom: 0.7rem;
 }

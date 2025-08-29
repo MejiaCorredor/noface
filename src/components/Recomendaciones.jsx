@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Recomendaciones.module.css';
+import styles from './Recomendaciones.module.scss';
 
 const CLIMA_OPCIONES = [
   { value: 'calido', label: 'Cálido' },
