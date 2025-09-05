@@ -1,19 +1,17 @@
 @use "../assets/variables" as *;
 @use "../assets/mixins" as *;
 .categoryContainer {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 1.2rem;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1.2rem auto;
   background: #232323;
   border-radius: 16px;
   border: 2px solid $primary-color;
   box-shadow: 0 4px 24px 0 #0004;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  max-width: 260px;
+  padding: 0.7rem 0.7rem 0.7rem 0.7rem;
   box-sizing: border-box;
   text-align: center;
+  overflow: hidden;
 }
 
 .categoryContainer * {
@@ -107,12 +105,14 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.2rem;
   margin-bottom: 2.5rem;
   color: $background-color;
-  max-height: 350px;
+  max-height: 340px;
   overflow-y: auto;
   padding-right: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid #444;
 }
 
 @media (max-width: 700px) {
@@ -122,14 +122,16 @@
     max-width: 100vw;
     overflow-x: hidden;
   }
-  .categoryContainer {
-    max-width: 100vw;
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.5rem 0.1rem;
-    box-sizing: border-box;
-  }
+    .categoryContainer {
+      width: 95vw !important;
+      max-width: 95vw !important;
+      margin-left: 2.5vw !important;
+      margin-right: 2.5vw !important;
+      border-radius: 12px !important;
+      padding: 0.3rem !important;
+      min-height: 44px !important;
+      box-sizing: border-box;
+    }
   .clothesGrid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -146,13 +148,15 @@
 .clothItem {
   background: #232323;
   border-radius: $border-radius;
-  padding: 1.7rem 2.2rem;
+  padding: 1.1rem 1.1rem;
   font-family: 'Jersey 15', $font-main;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   color: $background-color;
   text-align: center;
-  border: none;
-  box-shadow: 0 2px 12px #0003;
+  border: 1px solid #444;
+  box-shadow: 0 2px 8px #0002;
+  max-width: 140px;
+  margin: 0 auto;
 }
 
 .uploadBtn {

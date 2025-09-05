@@ -33,31 +33,26 @@ export default function Recomendaciones({ clothes }) {
       </div>
 
       <div className={styles.climaCard}>
-        <div className={styles.climaIcon}>
-          {clima === 'calido' ? '☀️' : '❄️'}
-        </div>
-        <div className={styles.climaSelector}>
-          <label htmlFor="clima">¿Cómo está el clima?</label>
-          <select 
-            id="clima" 
-            value={clima} 
-            onChange={e => setClima(e.target.value)}
-            className={styles.climaSelect}
-          >
-            {CLIMA_OPCIONES.map(opt => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
-            ))}
-          </select>
+        <div className={styles.climaSelectorRow}>
+          <span className={styles.climaIcon}>{clima === 'calido' ? '\u2600\ufe0f' : '\u2744\ufe0f'}</span>
+          <div className={styles.climaSelector}>
+            <label htmlFor="clima">¿Cómo está el clima?</label>
+            <select 
+              id="clima" 
+              value={clima} 
+              onChange={e => setClima(e.target.value)}
+              className={styles.climaSelect}
+            >
+              {CLIMA_OPCIONES.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 
       <div className={styles.recommendationsGrid}>
         <div className={styles.recsCard}>
-          <div className={styles.cardHeader}>
-            <h3>Prendas Recomendadas</h3>
-            <span className={styles.badge}>{recomendadas.length} items</span>
-          </div>
-          
           {recomendadas.length > 0 ? (
             <div className={styles.clothesList}>
               {recomendadas.map((c, i) => (
