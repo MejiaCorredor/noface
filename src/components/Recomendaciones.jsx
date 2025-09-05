@@ -84,7 +84,7 @@ export default function Recomendaciones({ clothes }) {
           <div className={styles.specialCard}>
             <div className={styles.specialHeader}>
               <div className={styles.specialIcon}>⭐</div>
-              <h3>¡Dale una oportunidad!</h3>
+              <h3>¡Redescubre tu estilo! Prueba algo diferente hoy</h3>
             </div>
             <div className={styles.specialContent}>
               <div className={styles.clotheItem}>
@@ -100,7 +100,7 @@ export default function Recomendaciones({ clothes }) {
                   {menosUsada.size && (
                     <span className={styles.clotheSize}>Talla {menosUsada.size}</span>
                   )}
-                  <span className={styles.specialNote}>Prenda menos usada</span>
+                  <span className={styles.specialNote}>¿Te animas a usar esta prenda y sorprender?</span>
                 </div>
               </div>
             </div>

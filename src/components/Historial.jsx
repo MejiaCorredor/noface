@@ -32,33 +32,19 @@ export default function Historial() {
             const abierto = openIdx === idx;
             return (
               <li key={idx} className={styles.historialItem}>
+                <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
+                  <span className={styles.historialDate}>{formatDate(item.date)}</span>
+                </div>
                 <button
                   className={styles.historialBtn}
                   onClick={() => setOpenIdx(abierto ? null : idx)}
                   aria-expanded={abierto}
-                  style={{
-                    width: '100%',
-                    background: 'none',
-                    border: 'none',
-                    color: '#f5c518',
-                    fontFamily: "'Jersey 15', monospace",
-                    fontSize: '1.1rem',
-                    letterSpacing: '1px',
-                    textAlign: 'left',
-                    padding: '1.1rem 0',
-                    cursor: 'pointer',
-                    outline: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.7rem',
-                    borderRadius: '12px',
-                  }}
                 >
-                  <span style={{flex:1}}>{formatDate(item.date)}</span>
+                  <span style={{flex:1}}>Ver outfit</span>
                   <span style={{fontSize:'1.2rem', opacity:0.7}}>{abierto ? '▲' : '▼'}</span>
                 </button>
                 <div className={abierto ? styles.categoryExpand : styles.categoryCollapse}>
-                  <div className={styles.historialPrendas} style={{marginTop:'1.1rem',marginBottom:'0.7rem'}}>
+                  <div className={styles.historialPrendas}>
                     {item.outfit.map((prenda, i) => (
                       <span key={i} className={styles.prendaTag}>
                         {prenda.image ? (
@@ -66,17 +52,16 @@ export default function Historial() {
                             src={prenda.image} 
                             alt={prenda.name}
                             className={styles.prendaImg}
-                            style={{width:38, height:38, objectFit:'cover', borderRadius:8, marginRight:8, background:'#232323'}}
                           />
                         ) : (
-                          <span style={{marginRight:8}}>
+                          <span style={{fontSize:'2rem', marginBottom:'0.3rem'}}>
                             {prenda.type === 'gorra' && '🧢'}
                             {prenda.type === 'camiseta' && '👕'}
                             {prenda.type === 'pantalon' && '👖'}
                             {prenda.type === 'zapatos' && '👞'}
                           </span>
                         )}
-                        {prenda.name}
+                        <span>{prenda.name}</span>
                       </span>
                     ))}
                   </div>
