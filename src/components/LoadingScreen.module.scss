@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+ .logoText {
+  font-family: 'Jersey 15', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 4rem;
+  color: #182848;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: spinText 2.5s cubic-bezier(.4,0,.2,1) infinite;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 1px 0 #fff;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  background: linear-gradient(90deg, #e0e7ef 0%, #f8fafc 100%);
+  box-shadow: 0 8px 32px rgba(24,40,72,0.08);
+}
+
+@keyframes spinText {
+  0% { transform: rotate(0deg) scale(1); opacity: 1; }
+  50% { transform: rotate(180deg) scale(1.08); opacity: 0.85; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}

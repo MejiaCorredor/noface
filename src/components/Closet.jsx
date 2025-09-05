@@ -3,11 +3,19 @@
 
 
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from './Closet.module.scss';
 import UploadModal from './UploadModal';
 
 export default function Closet({ clothes, onUpload, onDelete }) {
+  useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+    document.documentElement.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = '';
+      document.documentElement.style.overflowY = '';
+    };
+  }, []);
   const fileInput = useRef();
   const [modalImg, setModalImg] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -61,28 +69,26 @@ export default function Closet({ clothes, onUpload, onDelete }) {
               onClick={() => setOpenCat(openCat === cat.key ? null : cat.key)}
               style={{
                 width: '100%',
-                background: 'none',
-                border: 'none',
+                background: '#232323',
+                border: '2px solid #f5c518',
                 color: '#f5c518',
                 fontFamily: "'Jersey 15', monospace",
-                fontSize: '1.5rem',
+                fontSize: '1.3rem',
                 letterSpacing: '1px',
-                textAlign: 'left',
-                padding: '1.1rem 0 1.1rem 0',
+                textAlign: 'center',
+                padding: '1.1rem 0',
                 cursor: 'pointer',
                 outline: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.7rem',
-                transition: 'background 0.2s',
-                borderRadius: '12px',
-                marginBottom: openCat === cat.key ? '1.1rem' : 0
+                borderRadius: '16px',
+                marginBottom: openCat === cat.key ? '1.1rem' : 0,
+                fontWeight: 'bold',
+                boxShadow: '0 4px 24px 0 #0004',
+                transition: 'background 0.2s'
               }}
             >
-              <span style={{flex:1}}>{cat.label}</span>
-              <span style={{fontSize:'1.3rem',color:'#f5c518'}}>{openCat === cat.key ? '▲' : '▼'}</span>
+              {cat.label} <span style={{marginLeft:8}}>{openCat === cat.key ? '▲' : '▼'}</span>
             </button>
-            <div className={openCat === cat.key ? styles.categoryExpand : styles.categoryCollapse}>
+            {openCat === cat.key && (
               <div className={styles.clothesGrid} style={{marginBottom:'1.2rem'}}>
                 {grouped[cat.key].map((c) => (
                   <div className={styles.clothItem} key={c._idx} style={{
@@ -126,7 +132,7 @@ export default function Closet({ clothes, onUpload, onDelete }) {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
           </div>
         )
       )}

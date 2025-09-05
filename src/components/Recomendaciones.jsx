@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Recomendaciones.module.scss';
 
 const CLIMA_OPCIONES = [
@@ -7,6 +7,12 @@ const CLIMA_OPCIONES = [
 ];
 
 export default function Recomendaciones({ clothes }) {
+  useEffect(() => {
+    document.body.style.overflowY = 'auto';
+    return () => {
+      document.body.style.overflowY = '';
+    };
+  }, []);
   const [clima, setClima] = useState('calido');
 
   // Filtrar prendas recomendadas según clima
@@ -33,16 +39,15 @@ export default function Recomendaciones({ clothes }) {
       </div>
 
       <div className={styles.climaCard}>
-        <div className={styles.climaIcon}>
-          {clima === 'calido' ? '☀️' : '❄️'}
-        </div>
-        <div className={styles.climaSelector}>
-          <label htmlFor="clima">¿Cómo está el clima?</label>
+        <div className={styles.climaSelectorRow} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', display: 'flex', gap: '1.2rem' }}>
+          <span className={styles.climaIcon} style={{ fontSize: '2.2rem' }}>{clima === 'calido' ? '\u2600\ufe0f' : '\u2744\ufe0f'}</span>
+          <label htmlFor="clima" style={{ fontWeight: 'bold', color: '#f5c518', fontSize: '1.1rem', marginBottom: 0 }}>¿Cómo está el clima?</label>
           <select 
             id="clima" 
             value={clima} 
             onChange={e => setClima(e.target.value)}
             className={styles.climaSelect}
+            style={{ marginBottom: 0 }}
           >
             {CLIMA_OPCIONES.map(opt => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -53,11 +58,6 @@ export default function Recomendaciones({ clothes }) {
 
       <div className={styles.recommendationsGrid}>
         <div className={styles.recsCard}>
-          <div className={styles.cardHeader}>
-            <h3>Prendas Recomendadas</h3>
-            <span className={styles.badge}>{recomendadas.length} items</span>
-          </div>
-          
           {recomendadas.length > 0 ? (
             <div className={styles.clothesList}>
               {recomendadas.map((c, i) => (
@@ -89,7 +89,7 @@ export default function Recomendaciones({ clothes }) {
           <div className={styles.specialCard}>
             <div className={styles.specialHeader}>
               <div className={styles.specialIcon}>⭐</div>
-              <h3>¡Dale una oportunidad!</h3>
+              <h3>¡Redescubre tu estilo! Prueba algo diferente hoy</h3>
             </div>
             <div className={styles.specialContent}>
               <div className={styles.clotheItem}>
@@ -105,7 +105,7 @@ export default function Recomendaciones({ clothes }) {
                   {menosUsada.size && (
                     <span className={styles.clotheSize}>Talla {menosUsada.size}</span>
                   )}
-                  <span className={styles.specialNote}>Prenda menos usada</span>
+                  <span className={styles.specialNote}>¿Te animas a usar esta prenda y sorprender?</span>
                 </div>
               </div>
             </div>
