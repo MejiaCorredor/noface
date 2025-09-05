@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingScreen from '../components/LoadingScreen';
 import Login from '../components/Login';
 import Home from '../components/Home';
 import Navbar from '../components/Navbar';
@@ -31,6 +32,7 @@ export default function MainRouter() {
       { name: 'Gorra', type: 'gorra', lastUsed: Date.now() },
     ];
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('closet', JSON.stringify(clothes));
@@ -55,9 +57,25 @@ export default function MainRouter() {
     }
   }, [page]);
 
-  const handleNavigate = (to) => setPage(to);
+  const handleNavigate = (to) => {
+    if (to !== page) {
+      setLoading(true);
+      setTimeout(() => {
+        setPage(to);
+        setLoading(false);
+  }, 400); // Duración de la animación
+    }
+  };
 
-  const handleGoHome = () => setPage('home');
+  const handleGoHome = () => {
+    if (page !== 'home') {
+      setLoading(true);
+      setTimeout(() => {
+        setPage('home');
+        setLoading(false);
+  }, 400);
+    }
+  };
 
   const handleUpload = (prenda) => setClothes(prev => [...prev, prenda]);
 
@@ -76,17 +94,25 @@ export default function MainRouter() {
   const handleLogin = (username, rememberChecked) => {
     setUser(username);
     setRemember(rememberChecked);
-    setPage('home');
+    setLoading(true);
+    setTimeout(() => {
+      setPage('home');
+      setLoading(false);
+  }, 400);
   };
 
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('user');
-    setPage('home');
+    setLoading(true);
+    setTimeout(() => {
+      setPage('home');
+      setLoading(false);
+  }, 400);
   };
 
   if (!user) {
-    return <Login onLogin={handleLogin} />;
+    return loading ? <LoadingScreen /> : <Login onLogin={handleLogin} />;
   }
 
   let content = null;
@@ -119,13 +145,14 @@ export default function MainRouter() {
 
   return (
     <>
+      {loading && <LoadingScreen />}
       <Logo onClick={handleGoHome} />
       <Navbar
         onNavigate={handleNavigate}
         current={page}
         onLogout={handleLogout}
       />
-      <div style={{ paddingTop: 60, paddingBottom: 70 }}>{content}</div>
+      <div style={{ paddingTop: 60, paddingBottom: 70 }}>{!loading && content}</div>
       <Footer current={page} onNavigate={handleNavigate} />
     </>
   );
