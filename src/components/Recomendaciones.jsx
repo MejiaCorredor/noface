@@ -39,21 +39,20 @@ export default function Recomendaciones({ clothes }) {
       </div>
 
       <div className={styles.climaCard}>
-        <div className={styles.climaSelectorRow} style={{ justifyContent: 'center', display: 'flex' }}>
-          <span className={styles.climaIcon}>{clima === 'calido' ? '\u2600\ufe0f' : '\u2744\ufe0f'}</span>
-          <div className={styles.climaSelector}>
-                <label htmlFor="clima">¿Cómo está el clima?</label>
-            <select 
-              id="clima" 
-              value={clima} 
-              onChange={e => setClima(e.target.value)}
-              className={styles.climaSelect}
-            >
-              {CLIMA_OPCIONES.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+        <div className={styles.climaSelectorRow} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', display: 'flex', gap: '1.2rem' }}>
+          <span className={styles.climaIcon} style={{ fontSize: '2.2rem' }}>{clima === 'calido' ? '\u2600\ufe0f' : '\u2744\ufe0f'}</span>
+          <label htmlFor="clima" style={{ fontWeight: 'bold', color: '#f5c518', fontSize: '1.1rem', marginBottom: 0 }}>¿Cómo está el clima?</label>
+          <select 
+            id="clima" 
+            value={clima} 
+            onChange={e => setClima(e.target.value)}
+            className={styles.climaSelect}
+            style={{ marginBottom: 0 }}
+          >
+            {CLIMA_OPCIONES.map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
         </div>
       </div>
 
