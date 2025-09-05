@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Recomendaciones.module.scss';
 
 const CLIMA_OPCIONES = [
@@ -7,6 +7,12 @@ const CLIMA_OPCIONES = [
 ];
 
 export default function Recomendaciones({ clothes }) {
+  useEffect(() => {
+    document.body.style.overflowY = 'auto';
+    return () => {
+      document.body.style.overflowY = '';
+    };
+  }, []);
   const [clima, setClima] = useState('calido');
 
   // Filtrar prendas recomendadas según clima
@@ -33,10 +39,10 @@ export default function Recomendaciones({ clothes }) {
       </div>
 
       <div className={styles.climaCard}>
-        <div className={styles.climaSelectorRow}>
+        <div className={styles.climaSelectorRow} style={{ justifyContent: 'center', display: 'flex' }}>
           <span className={styles.climaIcon}>{clima === 'calido' ? '\u2600\ufe0f' : '\u2744\ufe0f'}</span>
           <div className={styles.climaSelector}>
-            <label htmlFor="clima">¿Cómo está el clima?</label>
+                <label htmlFor="clima">¿Cómo está el clima?</label>
             <select 
               id="clima" 
               value={clima} 

@@ -30,7 +30,9 @@ const Combinador = ({ clothes, onUse }) => {
 
   // Si el carrusel de gorra está en 0, es "Sin gorra" aunque el checkbox esté activo
   const seleccionActual = [
-    (selectedItems.gorra && iG > 0) ? gorras[iG - 1] : null,
+    selectedItems.gorra
+      ? (iG > 0 ? gorras[iG - 1] : { name: 'Sin gorra', type: 'gorra', image: null })
+      : null,
     selectedItems.camiseta ? camisetas[iC] : null,
     selectedItems.pantalon ? pantalones[iP] : null,
     selectedItems.zapatos ? zapatos[iZ] : null
