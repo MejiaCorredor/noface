@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../assets/variables" as *;
 @use "../assets/mixins" as *;
 
@@ -85,7 +86,7 @@
 }
 
 .logoutBtn:hover {
-  background: adjust-color($danger-color, $lightness: 10%);
+  background: color.adjust($danger-color, $lightness: 10%);
 }
 
 .menuBtn,
