@@ -5,7 +5,6 @@ import styles from "./Historial.module.scss";
 function formatDate(date) {
   const d = new Date(date);
   return d.toLocaleDateString("es-ES", {
-    year: "numeric",
     month: "short",
     day: "numeric",
   });
