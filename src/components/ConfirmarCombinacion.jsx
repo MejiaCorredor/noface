@@ -19,12 +19,16 @@ export default function ConfirmarCombinacion({ prendas, onConfirm, onCancel }) {
               <div className={styles.prendaType}>
                 {prenda.type === 'camiseta' && '👕'}
                 {prenda.type === 'pantalon' && '👖'}
-                {prenda.type === 'zapatos' && '👞'}
+                {prenda.type === 'zapatos' && '�'}
                 {prenda.type === 'gorra' && '🧢'}
                 <span>{prenda.type.charAt(0).toUpperCase() + prenda.type.slice(1)}</span>
               </div>
               <div className={styles.prendaContent}>
-                {prenda.image ? (
+                {prenda.type === 'gorra' && prenda.name === 'Sin gorra' ? (
+                  <div className={styles.placeholder}>
+                    🚫 Sin gorra
+                  </div>
+                ) : prenda.image ? (
                   <img 
                     src={prenda.image} 
                     alt={prenda.name}
