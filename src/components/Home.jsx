@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Home.module.scss';
+import LoadingScreen from './LoadingScreen';
 
 export default function Home({ onGoToCloset, onGoToRecs }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGoToCloset = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      onGoToCloset();
+    }, 800);
+  };
+
+  const handleGoToRecs = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      onGoToRecs();
+    }, 800);
+  };
+
   return (
     <div className={styles.homeContainer}>
+      {isLoading && <LoadingScreen />}
       
       {/* Hero */}
       <div className={styles.hero}>
@@ -13,12 +31,12 @@ export default function Home({ onGoToCloset, onGoToRecs }) {
 
       {/* Acciones principales */}
       <div className={styles.quickActions}>
-        <div className={styles.actionCard} onClick={onGoToCloset}>
+        <div className={styles.actionCard} onClick={handleGoToCloset}>
           <span className={styles.actionIcon}>👕</span>
           <h3>Closet</h3>
           <p>Explora tus prendas guardadas</p>
         </div>
-        <div className={styles.actionCard} onClick={onGoToRecs}>
+        <div className={styles.actionCard} onClick={handleGoToRecs}>
           <span className={styles.actionIcon}>✨</span>
           <h3>Recomendaciones</h3>
           <p>Descubre nuevas combinaciones</p>
