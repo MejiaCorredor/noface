@@ -31,15 +31,19 @@
 /* Quick actions */
 .quickActions {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: row;
+  gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .actionCard {
   background: #232323;
   border-radius: $border-radius;
-  padding: 1.5rem;
-  min-width: 150px;
+  padding: 1.2rem;
+  flex: 1;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
