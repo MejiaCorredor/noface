@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../assets/variables" as *;
 
 .modalOverlay {
@@ -148,6 +149,6 @@
   color: #181818;
 
   &:hover {
-  background: adjust-color($primary-color, $lightness: 10%);
+  background: color.adjust($primary-color, $lightness: 10%);
   }
 }

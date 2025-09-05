@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../assets/variables" as *;
 @use "../assets/mixins" as *;
 .categoryContainer {
@@ -56,7 +57,7 @@
   transition: $transition;
 }
 .deleteBtn:hover {
-  background: adjust-color($danger-color, $lightness: 10%);
+  background: $danger-color;
 }
 
 .deleteModal {
