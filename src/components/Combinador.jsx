@@ -57,14 +57,14 @@ const Combinador = ({ clothes, onUse }) => {
         <div className={styles.carouselGroup}>
           <Carousel
             items={[
-              <div key="no-hat" style={{width:200,height:200,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:24,background:'#232323',color:'#fff',fontSize:'2.5rem',flexDirection:'column'}}>
+              <div key="no-hat" style={{width:140,height:140,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:18,background:'#232323',color:'#fff',fontSize:'1.7rem',flexDirection:'column'}}>
                 <span role="img" aria-label="Sin gorra" style={{fontSize:'3.5rem',marginBottom:'0.5rem'}}>🚫</span>
                 <span style={{fontSize:'1.1rem'}}>Sin gorra</span>
               </div>,
               ...gorras.map((c, idx) =>
                 c.image
-                  ? <img key={idx} src={c.image} alt={c.name} style={{width:200,height:200,objectFit:'cover',borderRadius:24,background:'#232323'}} />
-                  : <span key={idx} style={{color:'#fff',fontSize:'2rem'}}>{c.name}</span>
+                  ? <img key={idx} src={c.image} alt={c.name} style={{width:140,height:140,objectFit:'cover',borderRadius:18,background:'#232323',transform:'rotate(0deg)'}} />
+                  : <span key={idx} style={{color:'#fff',fontSize:'1.2rem'}}>{c.name}</span>
               )
             ]}
             currentIndex={iG}
@@ -78,8 +78,8 @@ const Combinador = ({ clothes, onUse }) => {
             <Carousel 
               items={camisetas.map(c => 
                 c.image 
-                  ? <img src={c.image} alt={c.name} style={{width:200,height:200,objectFit:'cover',borderRadius:24,background:'#232323'}} /> 
-                  : <span style={{color:'#fff',fontSize:'2rem'}}>{c.name}</span>
+                  ? <img src={c.image} alt={c.name} style={{width:140,height:140,objectFit:'cover',borderRadius:18,background:'#232323',transform:'rotate(0deg)'}} /> 
+                  : <span style={{color:'#fff',fontSize:'1.2rem'}}>{c.name}</span>
               )}
               currentIndex={iC}
               onIndexChange={setIC}
@@ -93,8 +93,8 @@ const Combinador = ({ clothes, onUse }) => {
             <Carousel 
               items={pantalones.map(c => 
                 c.image 
-                  ? <img src={c.image} alt={c.name} style={{width:200,height:200,objectFit:'cover',borderRadius:24,background:'#232323'}} /> 
-                  : <span style={{color:'#fff',fontSize:'2rem'}}>{c.name}</span>
+                  ? <img src={c.image} alt={c.name} style={{width:140,height:140,objectFit:'cover',borderRadius:18,background:'#232323'}} /> 
+                  : <span style={{color:'#fff',fontSize:'1.2rem'}}>{c.name}</span>
               )}
               currentIndex={iP}
               onIndexChange={setIP}
@@ -108,8 +108,8 @@ const Combinador = ({ clothes, onUse }) => {
             <Carousel 
               items={zapatos.map(c => 
                 c.image 
-                  ? <img src={c.image} alt={c.name} style={{width:200,height:200,objectFit:'cover',borderRadius:24,background:'#232323'}} /> 
-                  : <span style={{color:'#fff',fontSize:'2rem'}}>{c.name}</span>
+                  ? <img src={c.image} alt={c.name} style={{width:140,height:140,objectFit:'cover',borderRadius:18,background:'#232323',transform:'rotate(90deg)'}} /> 
+                  : <span style={{color:'#fff',fontSize:'1.2rem'}}>{c.name}</span>
               )}
               currentIndex={iZ}
               onIndexChange={setIZ}
