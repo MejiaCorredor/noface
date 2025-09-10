@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">noface</string>
+    <string name="title_activity_main">noface</string>
+    <string name="package_name">com.noface.app</string>
+    <string name="custom_url_scheme">com.noface.app</string>
+</resources>
