@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 100vw;
   height: 64px;
-  background: #181818;
+  background: var(--color-bg);
   color: $background-color;
   z-index: 100;
   padding: 0 1rem;

@@ -1,0 +1,19 @@
+:root {
+  --color-bg: #181818;
+  --color-bg-alt: #232323;
+  --color-card: #353535;
+  --color-text: #fff;
+  --color-primary: #f5c518;
+  --color-secondary: #e6b014;
+  --color-accent: #4ecdc4;
+}
+
+[data-theme="light"] {
+  --color-bg: #fff;
+  --color-bg-alt: #f0f2f5;
+  --color-card: #e1e8ed;
+  --color-text: #181818;
+  --color-primary: #f5c518;
+  --color-secondary: #e6b014;
+  --color-accent: #4ecdc4;
+}

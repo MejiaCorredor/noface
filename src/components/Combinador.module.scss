@@ -16,7 +16,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  background: transparent;
+  background: var(--color-bg-alt);
   border: none;
 }
 .carouselLabel {
@@ -57,8 +57,8 @@ body {
 }
   .carouselGroup img {
     box-shadow: 0 2px 8px #0005;
-    border: 2px solid #232323;
-    background: #181818;
+  border: 2px solid var(--color-bg-alt);
+  background: var(--color-bg);
     margin: 0 1px;
     transition: box-shadow 0.2s, border 0.2s;
     display: block;
@@ -82,7 +82,7 @@ body {
 }
 .usarBtn {
   background: #f5c518;
-  color: #181818;
+  color: var(--color-text);
   border: none;
   border-radius: 10px;
   font-family: 'Jersey 15', $font-main;

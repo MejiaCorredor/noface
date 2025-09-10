@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.scss";
 import Logo from "./Logo";
 import ConfirmLogoutModal from "./ConfirmLogoutModal";
@@ -6,6 +6,16 @@ import ConfirmLogoutModal from "./ConfirmLogoutModal";
 export default function Navbar({ onNavigate, current, onLogout }) {
   const [showModal, setShowModal] = useState(false);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   const handleNav = (to) => {
     onNavigate(to);
@@ -35,6 +45,14 @@ export default function Navbar({ onNavigate, current, onLogout }) {
         <div className={styles.centerLogoBlock}>
           <Logo onClick={() => handleNav("home")} disabled={current === "home"} />
         </div>
+        <button
+          className={styles.themeBtnNav}
+          onClick={toggleTheme}
+          aria-label="Cambiar tema"
+          style={{position: 'absolute', left: 16, top: 8, background: 'none', border: 'none', outline: 'none', color: theme === 'dark' ? '#fff' : '#181818', fontSize: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '16px', width: '48px', height: '48px', margin: 0, padding: 0, transition: 'background 0.2s, color 0.2s'}}
+        >
+          {theme === 'dark' ? '🌙' : '☀️'}
+        </button>
         <button
           className={styles.logoutBtnNav}
           onClick={handleLogoutClick}
